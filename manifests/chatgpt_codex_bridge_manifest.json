@@ -1,0 +1,34 @@
+{
+  "bridge_version": "1.0.0",
+  "bridge_repo": "aevespers2/Bridge",
+  "purpose": "Controlled ChatGPT-to-Codex work request bridge.",
+  "queue": {
+    "path": "queues/chatgpt_codex_work_queue.jsonl",
+    "schema": "schemas/chatgpt_codex_request.schema.json"
+  },
+  "evidence_layer": {
+    "type": "gist_raw_json",
+    "read_only": true,
+    "urls": {
+      "summary": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_summary.json",
+      "seed_40128307": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_40128307.json",
+      "ranked25": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_ranked25.json",
+      "pull_list100": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_pull_list100.json"
+    }
+  },
+  "rules": [
+    "ChatGPT cannot directly modify evidence outputs.",
+    "Codex validates all requests before execution.",
+    "Rejected requests are preserved.",
+    "Use unknown instead of guessing.",
+    "Distinguish observed facts from hypotheses."
+  ],
+  "recommended_flow": [
+    "Read queue JSONL.",
+    "Validate against schema.",
+    "Process accepted tasks.",
+    "Regenerate outputs.",
+    "Publish refreshed snapshots.",
+    "Update queue status."
+  ]
+}
