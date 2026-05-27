@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/chatgpt_codex_request.schema.json",
+  "title": "ChatGPT to Codex Work Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_type", "source", "title", "instructions"],
+  "properties": {
+    "request_id": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "string",
+      "enum": ["chatgpt", "user", "github_issue", "gist_queue", "local_file"]
+    },
+    "request_type": {
+      "type": "string",
+      "enum": [
+        "codex_task",
+        "add_apn",
+        "review_apn",
+        "link_apns",
+        "add_note",
+        "request_office_pull",
+        "refresh_snapshots",
+        "publish_gist",
+        "run_tests",
+        "mark_resolved"
+      ]
+    },
+    "title": {"type": "string", "minLength": 3},
+    "instructions": {"type": "string", "minLength": 3},
+    "target_repo": {"type": "string"},
+    "target_branch": {"type": "string"},
+    "apn": {"type": "string", "pattern": "^\\d{3}-?\\d{3}-?\\d{2}$"},
+    "related_apns": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^\\d{3}-?\\d{3}-?\\d{2}$"},
+      "default": []
+    },
+    "evidence_links": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "commands": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical", "urgent"],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "accepted", "rejected", "processing", "processed", "blocked"],
+      "default": "pending"
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    }
+  }
+}
