@@ -29,6 +29,16 @@
     },
     "title": {"type": "string", "minLength": 3},
     "instructions": {"type": "string", "minLength": 3},
+    "human_signal": {"type": "string", "description": "Lived-context reason this request matters."},
+    "system_signal": {"type": "string", "description": "Model, anomaly, evidence, or structural reason this request matters."},
+    "shared_priority": {"type": "string", "description": "Why this request matters to Jacob and Alistaire together."},
+    "emotional_charge": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "volatile"],
+      "default": "medium"
+    },
+    "shipping_goal": {"type": "string", "description": "Concrete artifact or result Codex should produce."},
+    "evidence_boundary": {"type": "string", "description": "What would prove, weaken, or falsify the hypothesis."},
     "target_repo": {"type": "string"},
     "target_branch": {"type": "string"},
     "apn": {"type": "string", "pattern": "^\\d{3}-?\\d{3}-?\\d{2}$"},
