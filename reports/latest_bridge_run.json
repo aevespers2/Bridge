@@ -105,9 +105,9 @@
       "apn_timeline": 2,
       "assessor_office_packet": 12,
       "bridge_health_dashboard": 2,
-      "bridge_processed_queue": 11,
-      "bridge_rejected_queue": 11,
-      "bridge_status_report": 11,
+      "bridge_processed_queue": 14,
+      "bridge_rejected_queue": 14,
+      "bridge_status_report": 14,
       "entity_disambiguation_worksheet": 2,
       "gis_field_map": 2,
       "gist_snapshot_json": 8,
@@ -115,82 +115,82 @@
       "record_retrieval_playbook": 1,
       "snapshot_diff_report": 2
     },
-    "entry_count": 66,
+    "entry_count": 75,
     "latest_entries": [
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/assessor_packets/apn_40128307_cluster_packet.csv",
-        "artifact_type": "assessor_office_packet",
-        "producer": "scripts/generate_assessor_packet.py",
-        "recorded_at": "2026-05-28T07:20:42.502037+00:00",
-        "sha256": "49f1cc78277e41b7fa34b34b62da5b608463291909fc65363694b59deaedb033"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/graphs/parcel_lineage_40128307.json",
-        "artifact_type": "parcel_lineage_graph",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:21:21.985203+00:00",
-        "sha256": "931bbf2033c43f73b58ce45f6ae8faddf527d801aa7efdefcde63d921d7fb8ce"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/timelines/401-283-07_timeline.json",
-        "artifact_type": "apn_timeline",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:21:43.075146+00:00",
-        "sha256": "364b79e8529cfdca85abe625c4662cf17c8cd0c01e8305ac53bc6ceffb69ddc2"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/entity_disambiguation/larson_raymond_redmond_worksheet.csv",
-        "artifact_type": "entity_disambiguation_worksheet",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:21:59.165128+00:00",
-        "sha256": "938fe49aba92dd26cae39882df5b55f31d4a5e07e4030e83b3f8e2f5d70c7c9d"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/maps/401-283-07_field_map.geojson",
-        "artifact_type": "gis_field_map",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:22:15.858731+00:00",
-        "sha256": "a60c43592069ee509dea6c72dd4e7508b272ced1e78836d252df0feceed264d6"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/reports/snapshot_diff_latest.json",
-        "artifact_type": "snapshot_diff_report",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:22:48.565795+00:00",
-        "sha256": "e68c3f89cb65468bb4577eb269ac850147ffad879d6ea3ec0ab17e255d8d4398"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/reports/bridge_health_latest.json",
-        "artifact_type": "bridge_health_dashboard",
-        "producer": "scripts/bridge_artifact_generators.py",
-        "recorded_at": "2026-05-28T07:23:05.148930+00:00",
-        "sha256": "1ddcf5779671131563b2d9a98e42398b1a8b587fe731456dbbb92db1d9be3043"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
-        "artifact_type": "bridge_processed_queue",
-        "producer": "scripts/export_bridge_status.py",
-        "recorded_at": "2026-05-28T19:18:19.702915+00:00",
-        "sha256": "e45f5821ab30439a36edf2b2dd37c1a0bed8529ab782ff4fd6273e9bc4e90650"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
-        "artifact_type": "bridge_rejected_queue",
-        "producer": "scripts/export_bridge_status.py",
-        "recorded_at": "2026-05-28T19:18:19.703678+00:00",
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
       {
         "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json",
         "artifact_type": "bridge_status_report",
         "producer": "scripts/export_bridge_status.py",
         "recorded_at": "2026-05-28T19:18:19.704107+00:00",
         "sha256": "905a597b1c2ee98eaa52665cb833083fe07cd79abb6d8faf225a3cb1fbd28065"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
+        "artifact_type": "bridge_processed_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:33:54.093534+00:00",
+        "sha256": "61009ff16c4b418769990f39bf4782ee836081b6feafefa2425f68b959d11fe6"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
+        "artifact_type": "bridge_rejected_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:33:54.094282+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json",
+        "artifact_type": "bridge_status_report",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:33:54.094698+00:00",
+        "sha256": "df04a8291b577e87826d02030051dca672f03a0dba45aef491cf916aff9b848a"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
+        "artifact_type": "bridge_processed_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:43:10.910659+00:00",
+        "sha256": "4356a72ef02bb0605ee80d4538affb7bd983e2a8cfee8e0e2b0cf27c491f7c2b"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
+        "artifact_type": "bridge_rejected_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:43:10.912929+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json",
+        "artifact_type": "bridge_status_report",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T19:43:10.914687+00:00",
+        "sha256": "431deea2d967b032d75356c38f8bce7af1322664b79e66b5a07f2fb3e64fe572"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
+        "artifact_type": "bridge_processed_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T20:26:23.043290+00:00",
+        "sha256": "4356a72ef02bb0605ee80d4538affb7bd983e2a8cfee8e0e2b0cf27c491f7c2b"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
+        "artifact_type": "bridge_rejected_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T20:26:23.044046+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json",
+        "artifact_type": "bridge_status_report",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T20:26:23.044475+00:00",
+        "sha256": "18bc4661a29b9aac0811055cefaaf3125160429118d56c1c129435f4adb65986"
       }
     ],
     "ledger_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/evidence_ledger.jsonl"
   },
-  "generated_at": "2026-05-28T19:18:19.698205+00:00",
+  "generated_at": "2026-05-28T20:26:23.038892+00:00",
   "imported_count": 22,
   "processed_count": 22,
   "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
@@ -205,23 +205,85 @@
           "scripts/import_bridge_queue.py",
           "--use-gh-api"
         ],
-        "completed_at": "2026-05-28T19:12:45.563901+00:00",
-        "exit_code": 1,
-        "started_at": "2026-05-28T19:12:34.953037+00:00",
-        "stderr_tail": "Traceback (most recent call last):\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\", line 292, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\", line 259, in main\n    schema = json.loads(fetch_bridge_content_via_gh(\"schemas/chatgpt_codex_request.schema.json\"))\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\", line 74, in fetch_bridge_content_via_gh\n    result = subprocess.run(\n        [\"gh\", \"api\", f\"repos/aevespers2/Bridge/contents/{path}\", \"--jq\", \".content\"],\n    ...<2 lines>...\n        text=True,\n    )\n  File \"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['gh', 'api', 'repos/aevespers2/Bridge/contents/schemas/chatgpt_codex_request.schema.json', '--jq', '.content']' returned non-zero exit status 1.\n",
+        "completed_at": "2026-05-28T19:43:09.113386+00:00",
+        "exit_code": 0,
+        "started_at": "2026-05-28T19:42:59.175149+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/chatgpt_request_queue.jsonl\n/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_import_rejected.jsonl\naccepted_count=22 rejected_count=0\n"
+      },
+      {
+        "argv": [
+          "/Users/Alistaire/housing-fraud-intel-api/.venv/bin/python",
+          "scripts/process_chatgpt_request_queue.py",
+          "--processed-output",
+          "/tmp/chatgpt_request_queue_processed.routine.jsonl",
+          "--accepted-output",
+          "/tmp/manual_review_queue.routine.jsonl"
+        ],
+        "completed_at": "2026-05-28T19:43:09.566311+00:00",
+        "exit_code": 0,
+        "started_at": "2026-05-28T19:43:09.113537+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "/tmp/chatgpt_request_queue_processed.routine.jsonl\n/tmp/manual_review_queue.routine.jsonl\naccepted_count=25 rejected_count=0\n"
+      },
+      {
+        "argv": [
+          "mv",
+          "/tmp/chatgpt_request_queue_processed.routine.jsonl",
+          "exports/chatgpt_request_queue_processed.jsonl"
+        ],
+        "completed_at": "2026-05-28T19:43:09.585565+00:00",
+        "exit_code": 0,
+        "started_at": "2026-05-28T19:43:09.566621+00:00",
+        "stderr_tail": "",
         "stdout_tail": ""
+      },
+      {
+        "argv": [
+          "mv",
+          "/tmp/manual_review_queue.routine.jsonl",
+          "data/manual_review_queue.jsonl"
+        ],
+        "completed_at": "2026-05-28T19:43:09.603230+00:00",
+        "exit_code": 0,
+        "started_at": "2026-05-28T19:43:09.585709+00:00",
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      {
+        "argv": [
+          "/Users/Alistaire/housing-fraud-intel-api/.venv/bin/python",
+          "scripts/update_bridge_task_ledger.py"
+        ],
+        "completed_at": "2026-05-28T19:43:10.120233+00:00",
+        "exit_code": 0,
+        "started_at": "2026-05-28T19:43:09.603373+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\"appended_entries\": 0, \"duplicate_entries\": 0, \"ledger_entries\": 22, \"ledger_path\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_task_ledger.jsonl\", \"unique_task_hashes\": 22}\n"
+      },
+      {
+        "argv": [
+          "/Users/Alistaire/housing-fraud-intel-api/.venv/bin/python",
+          "scripts/export_bridge_status.py",
+          "--publish"
+        ],
+        "completed_at": "2026-05-28T20:21:10.620821+00:00",
+        "exit_code": 1,
+        "started_at": "2026-05-28T19:43:10.120422+00:00",
+        "stderr_tail": "gh: Invalid request.\n\n\"sha\" wasn't supplied. (HTTP 422)\nTraceback (most recent call last):\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/export_bridge_status.py\", line 303, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/export_bridge_status.py\", line 254, in main\n    publish_file(\n    ~~~~~~~~~~~~^\n        args.repo,\n        ^^^^^^^^^^\n    ...<3 lines>...\n        \"Update Bridge rejected queue status\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/export_bridge_status.py\", line 121, in publish_file\n    subprocess.run(\n    ~~~~~~~~~~~~~~^\n        [\"gh\", \"api\", f\"repos/{repo}/contents/{remote_path}\", \"-X\", \"PUT\", \"--input\", str(payload_path)],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        check=True,\n        ^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['gh', 'api', 'repos/aevespers2/Bridge/contents/queues/chatgpt_codex_rejected.jsonl', '-X', 'PUT', '--input', '/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/.chatgpt_codex_rejected.jsonl.publish_payload.json']' returned non-zero exit status 1.\n",
+        "stdout_tail": "essed_output\\\": \\\"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl\\\", \\\"rejected_count\\\": 0, \\\"rejected_output\\\": \\\"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl\\\", \\\"repo\\\": \\\"aevespers2/Bridge\\\", \\\"routine_check\\\": {\\\"commands_run\\\": [{\\\"argv\\\": [\\\"/Users/Alistaire/housing-fraud-intel-api/.venv/bin/python\\\", \\\"scripts/import_bridge_queue.py\\\", \\\"--use-gh-api\\\"], \\\"completed_at\\\": \\\"2026-05-28T19:27:57.385252+00:00\\\", \\\"exit_code\\\": 1, \\\"started_at\\\": \\\"2026-05-28T19:27:45.735563+00:00\\\", \\\"stderr_tail\\\": \\\"Traceback (most recent call last):\\\\n  File \\\\\\\"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\\\\\\\", line 292, in <module>\\\\n    main()\\\\n    ~~~~^^\\\\n  File \\\\\\\"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\\\\\\\", line 259, in main\\\\n    schema = json.loads(fetch_bridge_content_via_gh(\\\\\\\"schemas/chatgpt_codex_request.schema.json\\\\\\\"))\\\\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\n  File \\\\\\\"/Users/ALISTAIRE/housing-fraud-intel-api/scripts/import_bridge_queue.py\\\\\\\", line 74, in fetch_bridge_content_via_gh\\\\n    result = subprocess.run(\\\\n        [\\\\\\\"gh\\\\\\\", \\\\\\\"api\\\\\\\", f\\\\\\\"repos/aevespers2/Bridge/contents/{path}\\\\\\\", \\\\\\\"--jq\\\\\\\", \\\\\\\".content\\\\\\\"],\\\\n    ...<2 lines>...\\\\n        text=True,\\\\n    )\\\\n  File \\\\\\\"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py\\\\\\\", line 577, in run\\\\n    raise CalledProcessError(retcode, process.args,\\\\n                             output=stdout, stderr=stderr)\\\\nsubprocess.CalledProcessError: Command '['gh', 'api', 'repos/aevespers2/Bridge/contents/schemas/chatgpt_codex_request.schema.json', '--jq', '.content']' returned non-zero exit status 1.\\\\n\\\", \\\"stdout_tail\\\": \\\"\\\"}], \\\"counts\\\": {\\\"commands\\\": 1, \\\"failed\\\": 1, \\\"succeeded\\\": 0}, \\\"duration_seconds\\\": 11.651, \\\"end_time\\\": \\\"2026-05-28T19:27:57.385609+00:00\\\", \\\"exit_status\\\": \\\"failed\\\", \\\"lockfile\\\": \\\"/Users/Alistaire/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check.lock\\\", \\\"start_time\\\": \\\"2026-05-28T19:27:45.734753+00:00\\\"}, \\\"routine_check_output\\\": \\\"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check_latest.json\\\", \\\"safety_rules\\\": [\\\"Bridge status publishing does not modify outputs/gis_model.\\\", \\\"Bridge status publishing does not modify the public evidence Gist.\\\", \\\"Evidence outputs are regenerated only by the model refresh flow.\\\"], \\\"task_ledger\\\": {\\\"appended_entries\\\": 0, \\\"duplicate_entries\\\": 0, \\\"ledger_entries\\\": 22, \\\"ledger_path\\\": \\\"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_task_ledger.jsonl\\\", \\\"unique_task_hashes\\\": 22}}\\n/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_publish_blocked.json\\n\"}], \"counts\": {\"commands\": 6, \"failed\": 0, \"succeeded\": 6}, \"desktop_notification\": {\"exit_code\": 0, \"message\": \"Status success | Queue 22/22 accepted, 0 rejected | Commands 6 ok / 0 failed\", \"stderr_tail\": \"\", \"stdout_tail\": \"\", \"title\": \"Bridge check complete\"}, \"duration_seconds\": 39.934, \"end_time\": \"2026-05-28T19:34:04.389386+00:00\", \"exit_status\": \"success\", \"lockfile\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check.lock\", \"start_time\": \"2026-05-28T19:33:24.456003+00:00\"}, \"routine_check_output\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check_latest.json\", \"safety_rules\": [\"Bridge status publishing does not modify outputs/gis_model.\", \"Bridge status publishing does not modify the public evidence Gist.\", \"Evidence outputs are regenerated only by the model refresh flow.\"], \"task_ledger\": {\"appended_entries\": 0, \"duplicate_entries\": 0, \"ledger_entries\": 22, \"ledger_path\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_task_ledger.jsonl\", \"unique_task_hashes\": 22}}\n"
       }
     ],
     "counts": {
-      "commands": 1,
+      "commands": 6,
       "failed": 1,
-      "succeeded": 0
+      "succeeded": 5
     },
-    "duration_seconds": 10.612,
-    "end_time": "2026-05-28T19:12:45.564211+00:00",
+    "duration_seconds": 43.402,
+    "end_time": "2026-05-28T20:21:10.621840+00:00",
     "exit_status": "failed",
     "lockfile": "/Users/Alistaire/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check.lock",
-    "start_time": "2026-05-28T19:12:34.952273+00:00"
+    "start_time": "2026-05-28T19:42:59.173806+00:00"
   },
   "routine_check_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check_latest.json",
   "safety_rules": [
