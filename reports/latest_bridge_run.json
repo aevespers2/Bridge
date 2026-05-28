@@ -1,5 +1,5 @@
 {
-  "accepted_count": 5,
+  "accepted_count": 7,
   "blocked_count": 0,
   "command_results": {
     "command_result_count": 4,
@@ -46,9 +46,9 @@
     "rejected_count": 0
   },
   "command_results_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl",
-  "generated_at": "2026-05-28T06:22:05.387543+00:00",
-  "imported_count": 5,
-  "processed_count": 5,
+  "generated_at": "2026-05-28T06:28:18.125713+00:00",
+  "imported_count": 7,
+  "processed_count": 7,
   "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
   "rejected_count": 0,
   "rejected_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
