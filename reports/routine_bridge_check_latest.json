@@ -1,0 +1,77 @@
+{
+  "commands_run": [
+    {
+      "argv": [
+        "/Users/ALISTAIRE/housing-fraud-intel-api/.venv/bin/python",
+        "scripts/import_bridge_queue.py",
+        "--use-gh-api"
+      ],
+      "completed_at": "2026-05-28T06:28:17.837987+00:00",
+      "exit_code": 0,
+      "started_at": "2026-05-28T06:28:16.732021+00:00",
+      "stderr_tail": "",
+      "stdout_tail": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/chatgpt_request_queue.jsonl\n/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_import_rejected.jsonl\naccepted_count=7 rejected_count=0\n"
+    },
+    {
+      "argv": [
+        "/Users/ALISTAIRE/housing-fraud-intel-api/.venv/bin/python",
+        "scripts/process_chatgpt_request_queue.py",
+        "--processed-output",
+        "/tmp/chatgpt_request_queue_processed.routine.jsonl",
+        "--accepted-output",
+        "/tmp/manual_review_queue.routine.jsonl"
+      ],
+      "completed_at": "2026-05-28T06:28:17.979307+00:00",
+      "exit_code": 0,
+      "started_at": "2026-05-28T06:28:17.838041+00:00",
+      "stderr_tail": "",
+      "stdout_tail": "/tmp/chatgpt_request_queue_processed.routine.jsonl\n/tmp/manual_review_queue.routine.jsonl\naccepted_count=10 rejected_count=0\n"
+    },
+    {
+      "argv": [
+        "mv",
+        "/tmp/chatgpt_request_queue_processed.routine.jsonl",
+        "exports/chatgpt_request_queue_processed.jsonl"
+      ],
+      "completed_at": "2026-05-28T06:28:17.985976+00:00",
+      "exit_code": 0,
+      "started_at": "2026-05-28T06:28:17.979361+00:00",
+      "stderr_tail": "",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "mv",
+        "/tmp/manual_review_queue.routine.jsonl",
+        "data/manual_review_queue.jsonl"
+      ],
+      "completed_at": "2026-05-28T06:28:17.992560+00:00",
+      "exit_code": 0,
+      "started_at": "2026-05-28T06:28:17.986019+00:00",
+      "stderr_tail": "",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/Users/ALISTAIRE/housing-fraud-intel-api/.venv/bin/python",
+        "scripts/export_bridge_status.py",
+        "--publish"
+      ],
+      "completed_at": "2026-05-28T06:28:24.422544+00:00",
+      "exit_code": 0,
+      "started_at": "2026-05-28T06:28:17.992609+00:00",
+      "stderr_tail": "",
+      "stdout_tail": "828a5866469cfeda8a9a21d477569375b3aca6b5\",\"size\":16241,\"url\":\"https://api.github.com/repos/aevespers2/Bridge/contents/reports/bridge_command_results.jsonl?ref=main\",\"html_url\":\"https://github.com/aevespers2/Bridge/blob/main/reports/bridge_command_results.jsonl\",\"git_url\":\"https://api.github.com/repos/aevespers2/Bridge/git/blobs/828a5866469cfeda8a9a21d477569375b3aca6b5\",\"download_url\":\"https://raw.githubusercontent.com/aevespers2/Bridge/main/reports/bridge_command_results.jsonl\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/aevespers2/Bridge/contents/reports/bridge_command_results.jsonl?ref=main\",\"git\":\"https://api.github.com/repos/aevespers2/Bridge/git/blobs/828a5866469cfeda8a9a21d477569375b3aca6b5\",\"html\":\"https://github.com/aevespers2/Bridge/blob/main/reports/bridge_command_results.jsonl\"}},\"commit\":{\"sha\":\"e5e4922a44d68ead0fda74e1c3de72c64195feff\",\"node_id\":\"C_kwDOSpf7bdoAKGU1ZTQ5MjJhNDRkNjhlYWQwZmRhNzRlMWMzZGU3MmM2NDE5NWZlZmY\",\"url\":\"https://api.github.com/repos/aevespers2/Bridge/git/commits/e5e4922a44d68ead0fda74e1c3de72c64195feff\",\"html_url\":\"https://github.com/aevespers2/Bridge/commit/e5e4922a44d68ead0fda74e1c3de72c64195feff\",\"author\":{\"name\":\"GeorgeTownSabatical\",\"email\":\"georgemason_fellow@icloud.com\",\"date\":\"2026-05-28T06:28:23Z\"},\"committer\":{\"name\":\"GeorgeTownSabatical\",\"email\":\"georgemason_fellow@icloud.com\",\"date\":\"2026-05-28T06:28:23Z\"},\"tree\":{\"sha\":\"806f5660cd0ada607b15b8ad2790125a60f993ee\",\"url\":\"https://api.github.com/repos/aevespers2/Bridge/git/trees/806f5660cd0ada607b15b8ad2790125a60f993ee\"},\"message\":\"Update Bridge command results\",\"parents\":[{\"sha\":\"549d344a451e8a897a97b0c30cd43fe031d2ecb1\",\"url\":\"https://api.github.com/repos/aevespers2/Bridge/git/commits/549d344a451e8a897a97b0c30cd43fe031d2ecb1\",\"html_url\":\"https://github.com/aevespers2/Bridge/commit/549d344a451e8a897a97b0c30cd43fe031d2ecb1\"}],\"verification\":{\"verified\":false,\"reason\":\"unsigned\",\"signature\":null,\"payload\":null,\"verified_at\":null}}}/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl\n/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl\n/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json\n{\"accepted_count\": 7, \"blocked_count\": 0, \"command_results\": {\"command_result_count\": 4, \"executed_count\": 4, \"failed_count\": 0, \"latest_results\": [{\"command\": \"python scripts/import_bridge_queue.py --use-gh-api\", \"command_index\": 1, \"completed_at\": \"2026-05-28T06:21:06.722404+00:00\", \"exit_code\": 0, \"request_id\": \"bridge-5\", \"status\": \"executed\", \"validation_errors\": []}, {\"command\": \"python scripts/process_chatgpt_request_queue.py\", \"command_index\": 2, \"completed_at\": \"2026-05-28T06:21:06.901046+00:00\", \"exit_code\": 0, \"request_id\": \"bridge-5\", \"status\": \"executed\", \"validation_errors\": []}, {\"command\": \"python scripts/export_bridge_status.py --publish\", \"command_index\": 3, \"completed_at\": \"2026-05-28T06:21:11.923465+00:00\", \"exit_code\": 0, \"request_id\": \"bridge-5\", \"status\": \"executed\", \"validation_errors\": []}, {\"command\": \"python -m pytest\", \"command_index\": 4, \"completed_at\": \"2026-05-28T06:21:28.954381+00:00\", \"exit_code\": 0, \"request_id\": \"bridge-5\", \"status\": \"executed\", \"validation_errors\": []}], \"rejected_count\": 0}, \"command_results_output\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl\", \"generated_at\": \"2026-05-28T06:28:18.125713+00:00\", \"imported_count\": 7, \"processed_count\": 7, \"processed_output\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl\", \"rejected_count\": 0, \"rejected_output\": \"/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl\", \"repo\": \"aevespers2/Bridge\", \"safety_rules\": [\"Bridge status publishing does not modify outputs/gis_model.\", \"Bridge status publishing does not modify the public evidence Gist.\", \"Evidence outputs are regenerated only by the model refresh flow.\"]}\n"
+    }
+  ],
+  "counts": {
+    "commands": 5,
+    "failed": 0,
+    "succeeded": 5
+  },
+  "duration_seconds": 7.693,
+  "end_time": "2026-05-28T06:28:24.423121+00:00",
+  "exit_status": "success",
+  "lockfile": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/routine_bridge_check.lock",
+  "start_time": "2026-05-28T06:28:16.730435+00:00"
+}
