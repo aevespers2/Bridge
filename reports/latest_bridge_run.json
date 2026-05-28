@@ -1,0 +1,16 @@
+{
+  "accepted_count": 3,
+  "blocked_count": 0,
+  "generated_at": "2026-05-28T06:00:15.604235+00:00",
+  "imported_count": 3,
+  "processed_count": 3,
+  "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
+  "rejected_count": 0,
+  "rejected_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
+  "repo": "aevespers2/Bridge",
+  "safety_rules": [
+    "Bridge status publishing does not modify outputs/gis_model.",
+    "Bridge status publishing does not modify the public evidence Gist.",
+    "Evidence outputs are regenerated only by the model refresh flow."
+  ]
+}
