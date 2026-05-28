@@ -46,7 +46,7 @@
     "rejected_count": 0
   },
   "command_results_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl",
-  "generated_at": "2026-05-28T06:40:17.043853+00:00",
+  "generated_at": "2026-05-28T06:41:03.417182+00:00",
   "imported_count": 7,
   "processed_count": 7,
   "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
