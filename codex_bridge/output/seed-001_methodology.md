@@ -1,5 +1,5 @@
 # Codex Bridge Output: seed-001
-Generated: 2026-05-28T05:14:33.158053+00:00
+Generated: 2026-05-28T05:14:44.929714+00:00
 ## Task
 Build normalized California probate/conservatorship filing analysis using CSR, E-6 age 65+ denominators, and FHFA HPI exposures.
 ## Execution Plan
