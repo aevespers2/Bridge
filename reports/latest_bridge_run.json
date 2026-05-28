@@ -39,34 +39,13 @@
   "command_results_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl",
   "evidence_ledger": {
     "artifact_types": {
-      "bridge_processed_queue": 4,
-      "bridge_rejected_queue": 4,
-      "bridge_status_report": 4,
+      "bridge_processed_queue": 5,
+      "bridge_rejected_queue": 5,
+      "bridge_status_report": 5,
       "gist_snapshot_json": 8
     },
-    "entry_count": 20,
+    "entry_count": 23,
     "latest_entries": [
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/gis_model_api_responses/local_summary.json",
-        "artifact_type": "gist_snapshot_json",
-        "producer": "scripts/export_gis_api_snapshots.py",
-        "recorded_at": "2026-05-28T07:02:08.455269+00:00",
-        "sha256": "c8a8ed8399678d0f1a53064e0cb86c8a8c83857159f3e902061f4724e674e99e"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/gis_model_api_responses/local_40128307.json",
-        "artifact_type": "gist_snapshot_json",
-        "producer": "scripts/export_gis_api_snapshots.py",
-        "recorded_at": "2026-05-28T07:02:08.457374+00:00",
-        "sha256": "758b9a8b54653db0508cc58540be5d41a1be78f56eab540f761c3a957df11b81"
-      },
-      {
-        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/gis_model_api_responses/local_ranked25.json",
-        "artifact_type": "gist_snapshot_json",
-        "producer": "scripts/export_gis_api_snapshots.py",
-        "recorded_at": "2026-05-28T07:02:08.458970+00:00",
-        "sha256": "0b34434078a366c2ac82e6257fa3f5b5588a14d3edb8f4c680d5f5dfe01b2e62"
-      },
       {
         "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/gis_model_api_responses/local_pull_list100.json",
         "artifact_type": "gist_snapshot_json",
@@ -115,11 +94,32 @@
         "producer": "scripts/export_bridge_status.py",
         "recorded_at": "2026-05-28T07:02:37.568280+00:00",
         "sha256": "d3eaf60d4e57feaeed3eb275587db42332d59e8f080f5b002d79d14aec89c0c6"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
+        "artifact_type": "bridge_processed_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T07:03:13.605050+00:00",
+        "sha256": "600e5454a89b01c0bfff1b30fa1a3261ec73dd7365e04c28a18fca75825ab360"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_rejected.jsonl",
+        "artifact_type": "bridge_rejected_queue",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T07:03:13.606234+00:00",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json",
+        "artifact_type": "bridge_status_report",
+        "producer": "scripts/export_bridge_status.py",
+        "recorded_at": "2026-05-28T07:03:13.606763+00:00",
+        "sha256": "926fbb010f2926c9c3ccddecda99ec4710ac75870e9830a21710213cb7b9ce27"
       }
     ],
     "ledger_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/evidence_ledger.jsonl"
   },
-  "generated_at": "2026-05-28T07:02:37.564403+00:00",
+  "generated_at": "2026-05-28T07:03:13.600493+00:00",
   "imported_count": 10,
   "processed_count": 10,
   "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
