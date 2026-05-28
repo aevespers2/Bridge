@@ -1,0 +1,9 @@
+{
+  "required": ["id", "type", "status", "payload"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "status": { "enum": ["queued", "processing", "done", "error"] },
+    "payload": { "type": "object" }
+  }
+}
