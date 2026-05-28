@@ -1,0 +1,20 @@
+{
+  "id": "seed-001",
+  "generated_at": "2026-05-28T05:14:33.158056+00:00",
+  "task": "Build normalized California probate/conservatorship filing analysis using CSR, E-6 age 65+ denominators, and FHFA HPI exposures.",
+  "pipeline": [
+    "fetch_csr",
+    "extract_probate_conservatorship_filings",
+    "fetch_ca_dof_e6_population",
+    "fetch_fhfa_hpi",
+    "normalize_rates",
+    "rolling_window_baseline",
+    "outlier_detection",
+    "human_review_packet"
+  ],
+  "outputs": [
+    "methodology.md",
+    "pipeline_plan.json",
+    "data_dictionary.md"
+  ]
+}
