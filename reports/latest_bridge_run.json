@@ -3,42 +3,42 @@
   "blocked_count": 0,
   "command_results": {
     "command_result_count": 4,
-    "executed_count": 4,
-    "failed_count": 0,
+    "executed_count": 3,
+    "failed_count": 1,
     "latest_results": [
       {
-        "command": "python scripts/import_bridge_queue.py --use-gh-api",
+        "command": "ls",
         "command_index": 1,
-        "completed_at": "2026-05-28T06:21:06.722404+00:00",
+        "completed_at": "2026-05-28T06:28:26.854635+00:00",
         "exit_code": 0,
-        "request_id": "bridge-5",
+        "request_id": "bridge-7",
         "status": "executed",
         "validation_errors": []
       },
       {
-        "command": "python scripts/process_chatgpt_request_queue.py",
+        "command": "git status --short",
         "command_index": 2,
-        "completed_at": "2026-05-28T06:21:06.901046+00:00",
-        "exit_code": 0,
-        "request_id": "bridge-5",
-        "status": "executed",
+        "completed_at": "2026-05-28T06:28:26.881005+00:00",
+        "exit_code": 128,
+        "request_id": "bridge-7",
+        "status": "failed",
         "validation_errors": []
       },
       {
-        "command": "python scripts/export_bridge_status.py --publish",
+        "command": "rg Bridge docs scripts tests",
         "command_index": 3,
-        "completed_at": "2026-05-28T06:21:11.923465+00:00",
+        "completed_at": "2026-05-28T06:28:26.908987+00:00",
         "exit_code": 0,
-        "request_id": "bridge-5",
+        "request_id": "bridge-7",
         "status": "executed",
         "validation_errors": []
       },
       {
-        "command": "python -m pytest",
+        "command": "python -m pytest tests/test_import_bridge_queue.py tests/test_chatgpt_writeback_queue.py",
         "command_index": 4,
-        "completed_at": "2026-05-28T06:21:28.954381+00:00",
+        "completed_at": "2026-05-28T06:28:30.091300+00:00",
         "exit_code": 0,
-        "request_id": "bridge-5",
+        "request_id": "bridge-7",
         "status": "executed",
         "validation_errors": []
       }
@@ -46,7 +46,7 @@
     "rejected_count": 0
   },
   "command_results_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl",
-  "generated_at": "2026-05-28T06:28:18.125713+00:00",
+  "generated_at": "2026-05-28T06:29:01.175917+00:00",
   "imported_count": 7,
   "processed_count": 7,
   "processed_output": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/chatgpt_codex_processed.jsonl",
