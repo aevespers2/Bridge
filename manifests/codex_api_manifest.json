@@ -1,0 +1,41 @@
+{
+  "manifest_version": "1.0.0",
+  "name": "Codex Bridge API Manifest",
+  "purpose": "Executable intake layer separating ChatGPT proposals from validated evidence and Codex-produced artifacts.",
+  "queue_path": "exports/chatgpt_request_queue.jsonl",
+  "schema_path": "schemas/chatgpt_request.schema.json",
+  "processed_path": "exports/chatgpt_request_queue_processed.jsonl",
+  "rejected_path": "exports/chatgpt_request_queue_rejected.jsonl",
+  "output_paths": {
+    "bridge_status": "reports/latest_bridge_run.json",
+    "task_ledger": "reports/bridge_task_ledger.jsonl",
+    "command_results": "reports/bridge_command_results.jsonl"
+  },
+  "allowed_request_types": [
+    "codex_task",
+    "add_note",
+    "review_apn",
+    "add_apn",
+    "link_apns",
+    "request_office_pull",
+    "refresh_snapshots",
+    "publish_gist",
+    "run_tests",
+    "mark_resolved"
+  ],
+  "evidence_discipline_rules": [
+    "ChatGPT may propose requests but may not directly modify evidence outputs.",
+    "Codex validates requests before processing.",
+    "Published evidence snapshots are read-only from ChatGPT.",
+    "User claims remain hypotheses unless independently sourced.",
+    "Anomalies are not proof; preserve uncertainty and provenance.",
+    "Use unknown instead of guessing when values are missing."
+  ],
+  "gist_write_restrictions": {
+    "default": "disabled",
+    "rule": "No script writes directly to the public evidence Gist unless explicitly configured with credentials and an intentional publish command.",
+    "dry_run_scripts": [
+      "scripts/publish_gist_snapshots.sh"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/chatgpt_request.schema.json",
+  "title": "ChatGPT Bridge Request",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "type", "status", "created_at", "payload", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "codex_task",
+        "add_note",
+        "review_apn",
+        "add_apn",
+        "link_apns",
+        "request_office_pull",
+        "refresh_snapshots",
+        "publish_gist",
+        "run_tests",
+        "mark_resolved"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "accepted", "rejected", "processing", "done", "error"]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "ISO-8601 timestamp."
+    },
+    "payload": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    }
+  }
+}

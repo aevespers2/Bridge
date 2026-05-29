@@ -1,0 +1,33 @@
+name: Validate Bridge Queue
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "exports/chatgpt_request_queue.jsonl"
+      - "schemas/chatgpt_request.schema.json"
+      - "scripts/**"
+      - "manifests/codex_api_manifest.json"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate queue import
+        run: python scripts/import_chatgpt_github_requests.py --source local --input exports/chatgpt_request_queue.jsonl
+      - name: Process queue
+        run: python scripts/process_chatgpt_request_queue.py
+      - name: Run queue tests
+        run: python -m unittest discover -s tests
+      - name: Verify dry-run commands
+        run: |
+          python scripts/run_seed_cluster_40128307.py
+          python scripts/export_gis_api_snapshots.py
+          bash scripts/publish_gist_snapshots.sh
