@@ -10,7 +10,7 @@ Search a public parcel snapshot by APN, address text, city, or use class. The lo
 
 <div class="actions">
   <a class="button" href="{{ '/property-lookup/standalone.html' | relative_url }}">Open Lookup</a>
-  <a class="button secondary" href="{{ '/property-lookup/property_lookup_qr.png' | relative_url }}">Open QR Code</a>
+  <a class="button secondary" href="{{ '/qr/' | relative_url }}">Open QR Code</a>
   <a class="button secondary" href="{{ '/court-access/' | relative_url }}">Court Handout</a>
 </div>
 
@@ -40,4 +40,3 @@ This is informational public-record triage. It is not legal advice, a title opin
 ```text
 https://aevespers2.github.io/Bridge/property-lookup/standalone.html
 ```
-
