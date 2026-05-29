@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav aria-label="Primary">
+        <a href="{{ '/property-lookup/standalone.html' | relative_url }}">Lookup</a>
+        <a href="{{ '/court-access/' | relative_url }}">Court Handout</a>
+        <a href="https://github.com/aevespers2/Bridge">Bridge Repo</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap page">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      Public-record triage only. Official assessor, recorder, tax, court, city, and GIS records control.
+    </div>
+  </footer>
+</body>
+</html>
+

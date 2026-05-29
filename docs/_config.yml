@@ -1,0 +1,16 @@
+title: OC Parcel Anomaly GIS Comparator
+description: Public-record lookup and Codex bridge handoff for parcel verification workflows.
+url: "https://aevespers2.github.io"
+baseurl: "/Bridge"
+timezone: America/Los_Angeles
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
