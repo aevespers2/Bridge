@@ -3,7 +3,7 @@
 QR target:
 
 ```text
-https://raw.githack.com/aevespers2/Bridge/main/property-lookup/index.html
+https://htmlpreview.github.io/?https://github.com/aevespers2/Bridge/blob/main/property-lookup/standalone.html
 ```
 
 Purpose: allow any member of the public to search an APN or address text and see public-record triage signals, evidence class, and records to verify.
@@ -12,7 +12,7 @@ Boundary: this is not legal advice, a title opinion, a valuation, an ownership d
 
 Current snapshot:
 
-- Generated: 2026-05-29T06:08:50.732596+00:00
+- Generated: 2026-05-29T06:10:01.524803+00:00
 - Records: 19442
 - Search fields: APN, situs/address text, city, use class
 
