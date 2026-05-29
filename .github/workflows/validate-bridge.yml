@@ -26,6 +26,8 @@ jobs:
         run: python scripts/process_chatgpt_request_queue.py
       - name: Run queue tests
         run: python -m unittest discover -s tests
+      - name: Export evidence graph
+        run: python scripts/export_evidence_graph.py
       - name: Verify dry-run commands
         run: |
           python scripts/run_seed_cluster_40128307.py

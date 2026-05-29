@@ -21,6 +21,26 @@ ChatGPT proposals
 - Treat user claims as notes or hypotheses unless independently sourced.
 - Preserve provenance and validation errors.
 - Use `unknown` instead of guessing.
+- Use `PASS`, `FAIL`, or `UNKNOWN` for validation outcomes.
+
+## Epistemic Firewall
+
+Bridge separates observations, claims, validation, evidence graph, and published state.
+
+```text
+Human observations
+-> Claims / hypotheses
+-> Request queue
+-> Validation layer
+-> Evidence graph
+-> Published state
+```
+
+See:
+
+```text
+docs/EPISTEMIC_FIREWALL.md
+```
 
 ## Primary Bridge Files
 
@@ -45,6 +65,7 @@ https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b
 ```bash
 python scripts/import_chatgpt_github_requests.py --source local --input exports/chatgpt_request_queue.jsonl
 python scripts/process_chatgpt_request_queue.py
+python scripts/export_evidence_graph.py
 python scripts/run_seed_cluster_40128307.py
 python scripts/export_gis_api_snapshots.py
 bash scripts/publish_gist_snapshots.sh

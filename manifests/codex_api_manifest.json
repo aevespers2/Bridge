@@ -9,7 +9,8 @@
   "output_paths": {
     "bridge_status": "reports/latest_bridge_run.json",
     "task_ledger": "reports/bridge_task_ledger.jsonl",
-    "command_results": "reports/bridge_command_results.jsonl"
+    "command_results": "reports/bridge_command_results.jsonl",
+    "evidence_graph": "reports/evidence_graph.json"
   },
   "allowed_request_types": [
     "codex_task",
@@ -30,6 +31,15 @@
     "User claims remain hypotheses unless independently sourced.",
     "Anomalies are not proof; preserve uncertainty and provenance.",
     "Use unknown instead of guessing when values are missing."
+  ],
+  "validation_status_values": ["PASS", "FAIL", "UNKNOWN"],
+  "epistemic_layers": [
+    "observation",
+    "claim",
+    "request_queue",
+    "validation",
+    "evidence_graph",
+    "published_state"
   ],
   "gist_write_restrictions": {
     "default": "disabled",

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/observation.schema.json",
+  "title": "Bridge Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source", "observed_at", "observation", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "source": {"type": "string"},
+    "observed_at": {"type": "string"},
+    "observation": {"type": "string"},
+    "subject_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "document_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "provenance": {"type": "object"}
+  }
+}

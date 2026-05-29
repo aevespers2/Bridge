@@ -25,6 +25,11 @@
         "mark_resolved"
       ]
     },
+    "validation_status": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "UNKNOWN"],
+      "description": "Bridge validation outcome. PASS means structurally valid; FAIL means invalid; UNKNOWN means testability or source status is unresolved."
+    },
     "status": {
       "type": "string",
       "enum": ["queued", "accepted", "rejected", "processing", "done", "error"]

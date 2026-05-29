@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/evidence_graph.schema.json",
+  "title": "Bridge Evidence Graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "generated_at", "nodes", "edges", "provenance"],
+  "properties": {
+    "schema": {"type": "string", "const": "bridge_evidence_graph.v1"},
+    "generated_at": {"type": "string"},
+    "nodes": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "edges": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "provenance": {"type": "object"}
+  }
+}

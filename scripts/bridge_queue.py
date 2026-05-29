@@ -24,6 +24,7 @@ ALLOWED_TYPES = {
     "mark_resolved",
 }
 ALLOWED_STATUSES = {"queued", "accepted", "rejected", "processing", "done", "error"}
+VALIDATION_STATUSES = {"PASS", "FAIL", "UNKNOWN"}
 REQUIRED_FIELDS = ["id", "type", "status", "created_at", "payload", "provenance"]
 
 
@@ -68,6 +69,8 @@ def validate_row(row: dict[str, Any]) -> list[str]:
         errors.append("Field provenance must be an object.")
     if "created_at" in row and not isinstance(row["created_at"], str):
         errors.append("Field created_at must be an ISO-8601 string.")
+    if "validation_status" in row and row["validation_status"] not in VALIDATION_STATUSES:
+        errors.append(f"Unsupported validation_status: {row.get('validation_status')}")
     return errors
 
 
@@ -78,6 +81,7 @@ def split_valid(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[
         errors = validate_row(row)
         enriched = dict(row)
         enriched["validation_errors"] = errors
+        enriched["validation_status"] = "FAIL" if errors else enriched.get("validation_status", "PASS")
         enriched["validated_at"] = utc_now()
         if errors:
             enriched["status"] = "rejected"
@@ -104,4 +108,3 @@ def queue_arg_parser(description: str) -> argparse.ArgumentParser:
     parser.add_argument("--processed-output", default=str(PROCESSED_PATH))
     parser.add_argument("--rejected-output", default=str(REJECTED_PATH))
     return parser
-

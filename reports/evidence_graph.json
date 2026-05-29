@@ -1,0 +1,167 @@
+{
+  "edges": [
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source_repository": "aevespers2/Bridge",
+        "validation_status": "PASS"
+      },
+      "source": "document:https://github.com/aevespers2/Bridge/issues/1",
+      "target": "obs-bridge-001",
+      "type": "documents"
+    },
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source_repository": "aevespers2/Bridge",
+        "validation_status": "PASS"
+      },
+      "source": "obs-bridge-001",
+      "target": "request:bridge-scaffold-001",
+      "type": "observes"
+    },
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source": "user_architecture_assessment",
+        "validation_status": "UNKNOWN"
+      },
+      "source": "obs-bridge-001",
+      "target": "claim-bridge-001",
+      "type": "supports_claim_context"
+    },
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source": "local_and_github_actions_validation"
+      },
+      "source": "val-bridge-001",
+      "target": "bridge-scaffold-001",
+      "type": "validates"
+    },
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source": "local_and_github_actions_validation"
+      },
+      "source": "exports/chatgpt_request_queue_processed.jsonl",
+      "target": "val-bridge-001",
+      "type": "supports_validation"
+    },
+    {
+      "provenance": {
+        "generated_by": "codex",
+        "source": "local_and_github_actions_validation"
+      },
+      "source": ".github/workflows/validate-bridge.yml",
+      "target": "val-bridge-001",
+      "type": "supports_validation"
+    }
+  ],
+  "generated_at": "2026-05-29T06:46:24.265337+00:00",
+  "nodes": [
+    {
+      "id": "obs-bridge-001",
+      "label": "Bridge issue #1 requested executable queue validation, dry-run scripts, and evidence/provenance guardrails.",
+      "payload": {
+        "document_refs": [
+          "https://github.com/aevespers2/Bridge/issues/1"
+        ],
+        "id": "obs-bridge-001",
+        "observation": "Bridge issue #1 requested executable queue validation, dry-run scripts, and evidence/provenance guardrails.",
+        "observed_at": "2026-05-29T06:35:18Z",
+        "provenance": {
+          "generated_by": "codex",
+          "source_repository": "aevespers2/Bridge",
+          "validation_status": "PASS"
+        },
+        "source": "github_issue",
+        "subject_refs": [
+          "request:bridge-scaffold-001"
+        ]
+      },
+      "provenance": {
+        "generated_by": "codex",
+        "source_repository": "aevespers2/Bridge",
+        "validation_status": "PASS"
+      },
+      "type": "observation"
+    },
+    {
+      "id": "document:https://github.com/aevespers2/Bridge/issues/1",
+      "label": "https://github.com/aevespers2/Bridge/issues/1",
+      "payload": {
+        "id": "document:https://github.com/aevespers2/Bridge/issues/1",
+        "provenance": {
+          "generated_by": "codex",
+          "source_repository": "aevespers2/Bridge",
+          "validation_status": "PASS"
+        },
+        "ref": "https://github.com/aevespers2/Bridge/issues/1"
+      },
+      "provenance": {
+        "generated_by": "codex",
+        "source_repository": "aevespers2/Bridge",
+        "validation_status": "PASS"
+      },
+      "type": "document"
+    },
+    {
+      "id": "claim-bridge-001",
+      "label": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence grap",
+      "payload": {
+        "claim": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence graph, and published state.",
+        "confidence": "medium",
+        "created_at": "2026-05-29T06:45:00Z",
+        "id": "claim-bridge-001",
+        "observation_refs": [
+          "obs-bridge-001"
+        ],
+        "provenance": {
+          "generated_by": "codex",
+          "source": "user_architecture_assessment",
+          "validation_status": "UNKNOWN"
+        },
+        "status": "hypothesis"
+      },
+      "provenance": {
+        "generated_by": "codex",
+        "source": "user_architecture_assessment",
+        "validation_status": "UNKNOWN"
+      },
+      "type": "claim"
+    },
+    {
+      "id": "val-bridge-001",
+      "label": "PASS",
+      "payload": {
+        "contradicting_refs": [],
+        "id": "val-bridge-001",
+        "provenance": {
+          "generated_by": "codex",
+          "source": "local_and_github_actions_validation"
+        },
+        "supporting_refs": [
+          "exports/chatgpt_request_queue_processed.jsonl",
+          ".github/workflows/validate-bridge.yml"
+        ],
+        "target_id": "bridge-scaffold-001",
+        "target_type": "request",
+        "validated_at": "2026-05-29T06:43:31Z",
+        "validation_errors": [],
+        "validation_status": "PASS"
+      },
+      "provenance": {
+        "generated_by": "codex",
+        "source": "local_and_github_actions_validation"
+      },
+      "type": "validation"
+    }
+  ],
+  "provenance": {
+    "evidence_boundary": "Graph links observations, claims, and validation records; it does not convert hypotheses into proof.",
+    "generated_by": "codex",
+    "producer": "scripts/export_evidence_graph.py"
+  },
+  "schema": "bridge_evidence_graph.v1"
+}

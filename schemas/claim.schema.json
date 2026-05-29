@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/claim.schema.json",
+  "title": "Bridge Claim",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "claim", "created_at", "status", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "claim": {"type": "string"},
+    "created_at": {"type": "string"},
+    "status": {
+      "type": "string",
+      "enum": ["hypothesis", "under_review", "supported", "contradicted", "unresolved"]
+    },
+    "observation_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["unknown", "low", "medium", "high"],
+      "default": "unknown"
+    },
+    "provenance": {"type": "object"}
+  }
+}
