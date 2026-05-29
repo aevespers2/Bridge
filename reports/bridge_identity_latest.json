@@ -1,0 +1,103 @@
+{
+  "artifact_attestations": [
+    {
+      "exists": true,
+      "path": "exports/chatgpt_request_queue.jsonl",
+      "sha256": "7d9aa99f5821ddd4e885f8e951ddc2f203504fb4d265863623ee3335fa1519ab",
+      "size_bytes": 57049
+    },
+    {
+      "exists": true,
+      "path": "exports/chatgpt_request_queue_processed.jsonl",
+      "sha256": "a9696655d094cf6ab6c24cec508108cc6c4c36ab04c906e9cb5067d250664bd1",
+      "size_bytes": 59955
+    },
+    {
+      "exists": true,
+      "path": "exports/bridge_import_rejected.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "exists": true,
+      "path": "exports/bridge_status/latest_bridge_run.json",
+      "sha256": "5e31ef9038facc5ccb69159a28e69df0533b3bc69a34f2248e3c8d4da9d4de2b",
+      "size_bytes": 23977
+    },
+    {
+      "exists": true,
+      "path": "exports/bridge_status/bridge_command_results.jsonl",
+      "sha256": "f8571710bc99fe7a4adfc2e5cafd40c67de3a295948dc121b86ba63bb83723ee",
+      "size_bytes": 87952
+    },
+    {
+      "exists": true,
+      "path": "exports/bridge_status/bridge_task_ledger.jsonl",
+      "sha256": "94010025373d0ee8f5a4de3e5e979d36b46885fa5f655d9822ce638a5206ee63",
+      "size_bytes": 11360
+    },
+    {
+      "exists": true,
+      "path": "exports/evidence_ledger.jsonl",
+      "sha256": "88e96a40e99cb28999b89f66a0caa0d6726f956c748ffa80100df7415748e2af",
+      "size_bytes": 57588
+    }
+  ],
+  "attestation_hash": "bb069b44cf74e7bbc061817f4333c19b6fe944f4087dc64bc0ef5e47bdac3070",
+  "bridge_source_identity": {
+    "branch": "main",
+    "latest_report": {
+      "available": true,
+      "content_sha256": "503b696f6a82f0a7b707d5f4a8c949840e6a46a84e55470fddb4a2c2468af90b",
+      "download_url": "https://raw.githubusercontent.com/aevespers2/Bridge/main/reports/latest_bridge_run.json",
+      "path": "reports/latest_bridge_run.json",
+      "sha": "c7b7e44b79e72f6c08b1ff412b3826026a1f6111",
+      "size": 10522
+    },
+    "queue": {
+      "available": true,
+      "content_sha256": "f095773d28faee0045bfd13f74ff688a7f3b32182fdc143c16b3ab4498e31011",
+      "download_url": "https://raw.githubusercontent.com/aevespers2/Bridge/main/queues/chatgpt_codex_work_queue.jsonl",
+      "path": "queues/chatgpt_codex_work_queue.jsonl",
+      "sha": "d2ecdf9b6eb63e5e9935a1334dda76c79cf3170a",
+      "size": 34552
+    },
+    "repo": "aevespers2/Bridge",
+    "schema": {
+      "available": true,
+      "content_sha256": "d583b75098c6c6e96b283ab428dc03678f35de7b7aaa64b4ae111c8a9fe868f5",
+      "download_url": "https://raw.githubusercontent.com/aevespers2/Bridge/main/schemas/chatgpt_codex_request.schema.json",
+      "path": "schemas/chatgpt_codex_request.schema.json",
+      "sha": "4496e6777a59e1bdfc2fc41e773658af2d75b432",
+      "size": 2724
+    }
+  },
+  "generated_at": "2026-05-29T06:05:00.873268+00:00",
+  "previous_attestation_hash": "93e99bd3460d430aa658ed9ce4eac6adbb695ed2283b5fee83a10fba6c277f5f",
+  "protocol": "UVIP-Bridge",
+  "protocol_version": "1.0.0",
+  "run_id": "5f72b3986a8791729125c57c",
+  "runner_identity": {
+    "hostname_hash": "1b5d9652d2d31b5f575776cb",
+    "pid": 37017,
+    "platform": "macOS-26.3-x86_64-i386-64bit-Mach-O",
+    "python": "/Users/ALISTAIRE/housing-fraud-intel-api/.venv/bin/python",
+    "repo_path_hash": "dd33f236de0b9a86bc3118c8",
+    "runner_kind": "local_codex_mac",
+    "secrets_policy": "No tokens, recovery codes, private keys, or raw user identifiers are included.",
+    "user_hash": "a62843d28ebe3d526af9adb4"
+  },
+  "trust_boundaries": [
+    "This attests runner, source, and artifact identity; it does not prove parcel facts.",
+    "GitHub blob SHAs prove repository content identity at fetch time, not author intent.",
+    "Runner identity is hashed to avoid publishing local account or host identifiers.",
+    "No secrets or recovery codes are recorded."
+  ],
+  "verification_summary": {
+    "attested_artifact_count": 7,
+    "bridge_source_reachable": true,
+    "hash_chain_present": true,
+    "identity_level": "hashed_runner_identity_plus_github_blob_identity",
+    "missing_artifact_count": 0
+  }
+}
