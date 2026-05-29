@@ -42,6 +42,12 @@ See:
 docs/EPISTEMIC_FIREWALL.md
 ```
 
+Public review page:
+
+```text
+https://aevespers2.github.io/Bridge/evidence-graph/
+```
+
 ## Primary Bridge Files
 
 ```text
@@ -49,6 +55,8 @@ manifests/codex_api_manifest.json
 schemas/chatgpt_request.schema.json
 exports/chatgpt_request_queue.jsonl
 docs/GITHUB_CHATGPT_WRITEBACK.md
+reports/reproducibility_report.md
+docs/evidence-graph/index.html
 ```
 
 ## Current Evidence Snapshot URLs
