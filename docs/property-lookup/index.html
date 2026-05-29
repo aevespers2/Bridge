@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Property Record Lookup</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #596574;
+      --line: #d8dee6;
+      --accent: #0f766e;
+      --warn: #8a4b0f;
+      --bg: #f7f9fb;
+      --panel: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+    header { background: #ffffff; border-bottom: 1px solid var(--line); padding: 20px; }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+    p { line-height: 1.45; }
+    .search { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin: 18px 0; }
+    input { min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 16px; }
+    button { min-height: 44px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--accent); color: white; font-weight: 650; cursor: pointer; }
+    .notice { background: #fff7ed; border: 1px solid #fed7aa; color: var(--warn); padding: 12px; border-radius: 6px; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    .row { display: grid; grid-template-columns: 170px 1fr; gap: 12px; padding: 4px 0; border-bottom: 1px solid #edf1f5; }
+    .row:last-child { border-bottom: 0; }
+    .label { color: var(--muted); }
+    .score { display: inline-block; min-width: 56px; padding: 3px 8px; border-radius: 999px; background: #e6fffb; color: #115e59; font-weight: 700; text-align: center; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; background: #fafafa; }
+    footer { color: var(--muted); font-size: 13px; padding: 24px 20px; border-top: 1px solid var(--line); background: #fff; }
+    @media (max-width: 640px) {
+      .search { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Public Property Record Lookup</h1>
+    <p>Search by APN, address text, city, or use class. Results show public-record triage signals and suggested records to verify.</p>
+  </header>
+  <main>
+    <div class="notice">This tool is informational. It does not prove misconduct, ownership, title status, value, legal rights, or liability. Verify all facts with official assessor, recorder, tax, court, city, and GIS records.</div>
+    <div class="search">
+      <input id="query" type="search" placeholder="Example: 401-283-07 or Tustin" autocomplete="off">
+      <button id="search">Search</button>
+    </div>
+    <p id="meta">Loading lookup data...</p>
+    <div id="results" class="grid"></div>
+  </main>
+  <footer>
+    Public URL target: https://aevespers2.github.io/Bridge/property-lookup/standalone.html<br>
+    Evidence boundary: public-record triage only; official records control.
+  </footer>
+  <script src="property_lookup_data.js"></script>
+  <script>
+    const records = (window.PROPERTY_LOOKUP_DATA && window.PROPERTY_LOOKUP_DATA.records) || [];
+    const meta = document.getElementById('meta');
+    const results = document.getElementById('results');
+    const input = document.getElementById('query');
+    const button = document.getElementById('search');
+    meta.textContent = `${records.length.toLocaleString()} public lookup records loaded.`;
+
+    function norm(text) { return String(text || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+    function chipList(items) {
+      const values = (items || []).filter(Boolean);
+      return values.length ? `<div class="chips">${values.map(v => `<span class="chip">${escapeHtml(v)}</span>`).join('')}</div>` : 'unknown';
+    }
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function render(list) {
+      results.innerHTML = '';
+      if (!list.length) {
+        results.innerHTML = '<div class="card">No matching APN or address text found in the current public snapshot.</div>';
+        return;
+      }
+      for (const row of list.slice(0, 50)) {
+        const card = document.createElement('section');
+        card.className = 'card';
+        card.innerHTML = `
+          <h2>${escapeHtml(row.apn)} <span class="score">${escapeHtml(row.anomaly_score)}</span></h2>
+          <div class="row"><div class="label">Situs</div><div>${escapeHtml(row.situs_address)}</div></div>
+          <div class="row"><div class="label">City / Use</div><div>${escapeHtml(row.city)} / ${escapeHtml(row.use_class)}</div></div>
+          <div class="row"><div class="label">Evidence Class</div><div>${escapeHtml(row.observation_class)}; confidence ${escapeHtml(row.confidence_score)}</div></div>
+          <div class="row"><div class="label">Public Signals</div><div>${chipList(row.anomaly_reasons)}</div></div>
+          <div class="row"><div class="label">Related APNs</div><div>${chipList(row.related_apns)}</div></div>
+          <div class="row"><div class="label">Records To Verify</div><div>${chipList(row.requested_records)}</div></div>
+          <div class="row"><div class="label">Unresolved</div><div>${escapeHtml(row.unresolved_questions || 'Verify against official records.')}</div></div>
+          <div class="row"><div class="label">Boundary</div><div>${escapeHtml(row.public_boundary)}</div></div>
+        `;
+        results.appendChild(card);
+      }
+    }
+    function runSearch() {
+      const q = input.value.trim();
+      if (!q) {
+        render(records.slice(0, 10));
+        return;
+      }
+      const nq = norm(q);
+      const matches = records.filter(row => {
+        return norm(row.apn).includes(nq) || norm(row.normalized_apn).includes(nq) ||
+          norm(row.situs_address).includes(nq) || norm(row.city).includes(nq) || norm(row.use_class).includes(nq);
+      }).sort((a, b) => Number(b.anomaly_score || 0) - Number(a.anomaly_score || 0));
+      render(matches);
+    }
+    button.addEventListener('click', runSearch);
+    input.addEventListener('keydown', event => { if (event.key === 'Enter') runSearch(); });
+    render(records.slice(0, 10));
+  </script>
+</body>
+</html>
