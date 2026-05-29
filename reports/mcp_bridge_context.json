@@ -1,0 +1,73 @@
+{
+  "bridge_status_summary": {
+    "accepted_count": 22,
+    "blocked_count": 0,
+    "command_failed_count": 0,
+    "command_rejected_count": 0,
+    "command_result_count": 22,
+    "generated_at": "2026-05-29T06:05:23.093881+00:00",
+    "imported_count": 22,
+    "processed_count": 22,
+    "rejected_count": 0
+  },
+  "generated_at": "2026-05-29T06:05:23.235151+00:00",
+  "identity_attestation_summary": {
+    "attestation_hash": "018ef0491435ab063d225be159c6c93db47d3e5a002f4f48a47beb1ed9b13ae2",
+    "previous_attestation_hash": "bb069b44cf74e7bbc061817f4333c19b6fe944f4087dc64bc0ef5e47bdac3070",
+    "protocol": "UVIP-Bridge",
+    "protocol_version": "1.0.0",
+    "run_id": "c50c86586e16027ccd7e05f2",
+    "verification_summary": {
+      "attested_artifact_count": 7,
+      "bridge_source_reachable": true,
+      "hash_chain_present": true,
+      "identity_level": "hashed_runner_identity_plus_github_blob_identity",
+      "missing_artifact_count": 0
+    }
+  },
+  "local_artifacts": {
+    "command_result_rows": 22,
+    "command_results": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_command_results.jsonl",
+    "identity_attestation": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_identity_latest.json",
+    "manual_review_queue": "data/manual_review_queue.jsonl",
+    "processed_queue": "exports/chatgpt_request_queue_processed.jsonl",
+    "status": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/latest_bridge_run.json"
+  },
+  "mcp_role": "transport_and_context_layer_only",
+  "read_targets": [
+    {
+      "connector": "github_mcp",
+      "name": "Bridge queue",
+      "purpose": "Read proposed ChatGPT/Codex work requests.",
+      "url": "https://github.com/aevespers2/Bridge/blob/main/queues/chatgpt_codex_work_queue.jsonl"
+    },
+    {
+      "connector": "github_mcp",
+      "name": "Latest Bridge run",
+      "purpose": "Read published processing status and UVIP summary.",
+      "url": "https://github.com/aevespers2/Bridge/blob/main/reports/latest_bridge_run.json"
+    },
+    {
+      "connector": "gist_raw",
+      "name": "Evidence snapshots",
+      "purpose": "Read evidence handoff snapshots; MCP does not mutate evidence.",
+      "url": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_summary.json"
+    }
+  ],
+  "safety_rules": [
+    "MCP is a transport/context layer, not an evidence authority.",
+    "MCP writes go to Bridge queue only, never directly to outputs/gis_model or evidence Gist.",
+    "All MCP-originated requests must pass local schema validation and safe command allowlists.",
+    "UVIP attestations identify runner/source/artifact hashes but do not prove parcel facts."
+  ],
+  "schema": "mcp_bridge_context.v1",
+  "write_targets": [
+    {
+      "connector": "github_mcp",
+      "name": "Bridge queue append/update",
+      "path": "queues/chatgpt_codex_work_queue.jsonl",
+      "repository": "aevespers2/Bridge",
+      "rule": "Write requests only; local Codex validation must accept before processing."
+    }
+  ]
+}
