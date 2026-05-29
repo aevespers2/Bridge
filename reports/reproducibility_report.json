@@ -1,0 +1,67 @@
+{
+  "commands": [
+    "python scripts/import_chatgpt_github_requests.py --source local --input exports/chatgpt_request_queue.jsonl",
+    "python scripts/process_chatgpt_request_queue.py",
+    "python scripts/export_evidence_graph.py",
+    "python scripts/export_reproducibility_report.py",
+    "python -m unittest discover -s tests"
+  ],
+  "derived_vs_observed": {
+    "derived_node_ids": [
+      "claim-bridge-001",
+      "val-bridge-001"
+    ],
+    "observed_node_ids": [
+      "obs-bridge-001",
+      "document:https://github.com/aevespers2/Bridge/issues/1"
+    ]
+  },
+  "evidence_boundary": "Reproducibility report describes commands and sources; it does not prove claims or mutate evidence snapshots.",
+  "generated_at": "2026-05-29T08:31:52.921374+00:00",
+  "graph_counts": {
+    "edge_types": [
+      "documents",
+      "observes",
+      "supports_claim_context",
+      "supports_validation",
+      "validates"
+    ],
+    "edges": 6,
+    "node_types": [
+      "claim",
+      "document",
+      "observation",
+      "validation"
+    ],
+    "nodes": 4
+  },
+  "queue_counts": {
+    "processed": 1,
+    "queued": 1,
+    "rejected": 0
+  },
+  "reproducible": true,
+  "required_sources": [
+    ".github/workflows/validate-bridge.yml",
+    "data/claims.jsonl",
+    "data/observations.jsonl",
+    "data/validation_records.jsonl",
+    "exports/chatgpt_request_queue.jsonl",
+    "exports/chatgpt_request_queue_processed.jsonl",
+    "https://github.com/aevespers2/Bridge/issues/1"
+  ],
+  "schema": "bridge_reproducibility_report.v1",
+  "unknown_claims": [
+    {
+      "claim": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence graph, and published state.",
+      "id": "claim-bridge-001",
+      "status": "hypothesis",
+      "validation_status": "UNKNOWN"
+    }
+  ],
+  "validation_counts": {
+    "FAIL": 0,
+    "PASS": 4,
+    "UNKNOWN": 1
+  }
+}

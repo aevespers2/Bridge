@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bridge Evidence Graph Review</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f9fb; color: #1f2933; }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { font-size: clamp(30px, 5vw, 54px); margin: 0 0 8px; letter-spacing: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+    .card { background: #fff; border: 1px solid #d8dee6; border-radius: 8px; padding: 14px; }
+    .status { display: inline-block; padding: 3px 8px; border-radius: 999px; font-weight: 750; }
+    .PASS { background: #dcfce7; color: #166534; }
+    .FAIL { background: #fee2e2; color: #991b1b; }
+    .UNKNOWN { background: #fef3c7; color: #92400e; }
+    pre { overflow-x: auto; background: #101820; color: #f8fbff; border-radius: 8px; padding: 12px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { text-align: left; border-bottom: 1px solid #d8dee6; padding: 8px; vertical-align: top; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Bridge Evidence Graph Review</h1>
+  <p>Static review surface for observations, claims, validation records, provenance, and reproducibility. Claims remain hypotheses unless validated by independent sources.</p>
+  <div class="grid" id="counts"></div>
+  <h2>UNKNOWN Claims</h2>
+  <table id="unknown"><thead><tr><th>ID</th><th>Claim</th><th>Status</th></tr></thead><tbody></tbody></table>
+  <h2>Nodes</h2>
+  <table id="nodes"><thead><tr><th>Type</th><th>ID</th><th>Label</th><th>Validation</th></tr></thead><tbody></tbody></table>
+  <h2>Edges By Type</h2>
+  <pre id="edges"></pre>
+  <h2>Provenance</h2>
+  <pre id="provenance"></pre>
+</main>
+<script id="bridge-data" type="application/json">{"graph": {"edges": [{"provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "source": "document:https://github.com/aevespers2/Bridge/issues/1", "target": "obs-bridge-001", "type": "documents"}, {"provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "source": "obs-bridge-001", "target": "request:bridge-scaffold-001", "type": "observes"}, {"provenance": {"generated_by": "codex", "source": "user_architecture_assessment", "validation_status": "UNKNOWN"}, "source": "obs-bridge-001", "target": "claim-bridge-001", "type": "supports_claim_context"}, {"provenance": {"generated_by": "codex", "source": "local_and_github_actions_validation"}, "source": "val-bridge-001", "target": "bridge-scaffold-001", "type": "validates"}, {"provenance": {"generated_by": "codex", "source": "local_and_github_actions_validation"}, "source": "exports/chatgpt_request_queue_processed.jsonl", "target": "val-bridge-001", "type": "supports_validation"}, {"provenance": {"generated_by": "codex", "source": "local_and_github_actions_validation"}, "source": ".github/workflows/validate-bridge.yml", "target": "val-bridge-001", "type": "supports_validation"}], "generated_at": "2026-05-29T08:31:52.814687+00:00", "nodes": [{"id": "obs-bridge-001", "label": "Bridge issue #1 requested executable queue validation, dry-run scripts, and evidence/provenance guardrails.", "payload": {"document_refs": ["https://github.com/aevespers2/Bridge/issues/1"], "id": "obs-bridge-001", "observation": "Bridge issue #1 requested executable queue validation, dry-run scripts, and evidence/provenance guardrails.", "observed_at": "2026-05-29T06:35:18Z", "provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "source": "github_issue", "subject_refs": ["request:bridge-scaffold-001"]}, "provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "type": "observation"}, {"id": "document:https://github.com/aevespers2/Bridge/issues/1", "label": "https://github.com/aevespers2/Bridge/issues/1", "payload": {"id": "document:https://github.com/aevespers2/Bridge/issues/1", "provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "ref": "https://github.com/aevespers2/Bridge/issues/1"}, "provenance": {"generated_by": "codex", "source_repository": "aevespers2/Bridge", "validation_status": "PASS"}, "type": "document"}, {"id": "claim-bridge-001", "label": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence grap", "payload": {"claim": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence graph, and published state.", "confidence": "medium", "created_at": "2026-05-29T06:45:00Z", "id": "claim-bridge-001", "observation_refs": ["obs-bridge-001"], "provenance": {"generated_by": "codex", "source": "user_architecture_assessment", "validation_status": "UNKNOWN"}, "status": "hypothesis"}, "provenance": {"generated_by": "codex", "source": "user_architecture_assessment", "validation_status": "UNKNOWN"}, "type": "claim"}, {"id": "val-bridge-001", "label": "PASS", "payload": {"contradicting_refs": [], "id": "val-bridge-001", "provenance": {"generated_by": "codex", "source": "local_and_github_actions_validation"}, "supporting_refs": ["exports/chatgpt_request_queue_processed.jsonl", ".github/workflows/validate-bridge.yml"], "target_id": "bridge-scaffold-001", "target_type": "request", "validated_at": "2026-05-29T06:43:31Z", "validation_errors": [], "validation_status": "PASS"}, "provenance": {"generated_by": "codex", "source": "local_and_github_actions_validation"}, "type": "validation"}], "provenance": {"evidence_boundary": "Graph links observations, claims, and validation records; it does not convert hypotheses into proof.", "generated_by": "codex", "producer": "scripts/export_evidence_graph.py"}, "schema": "bridge_evidence_graph.v1"}, "report": {"commands": ["python scripts/import_chatgpt_github_requests.py --source local --input exports/chatgpt_request_queue.jsonl", "python scripts/process_chatgpt_request_queue.py", "python scripts/export_evidence_graph.py", "python scripts/export_reproducibility_report.py", "python -m unittest discover -s tests"], "derived_vs_observed": {"derived_node_ids": ["claim-bridge-001", "val-bridge-001"], "observed_node_ids": ["obs-bridge-001", "document:https://github.com/aevespers2/Bridge/issues/1"]}, "evidence_boundary": "Reproducibility report describes commands and sources; it does not prove claims or mutate evidence snapshots.", "generated_at": "2026-05-29T08:31:52.921374+00:00", "graph_counts": {"edge_types": ["documents", "observes", "supports_claim_context", "supports_validation", "validates"], "edges": 6, "node_types": ["claim", "document", "observation", "validation"], "nodes": 4}, "queue_counts": {"processed": 1, "queued": 1, "rejected": 0}, "reproducible": true, "required_sources": [".github/workflows/validate-bridge.yml", "data/claims.jsonl", "data/observations.jsonl", "data/validation_records.jsonl", "exports/chatgpt_request_queue.jsonl", "exports/chatgpt_request_queue_processed.jsonl", "https://github.com/aevespers2/Bridge/issues/1"], "schema": "bridge_reproducibility_report.v1", "unknown_claims": [{"claim": "The Bridge repository should operate as an epistemic firewall separating observations, claims, validation, evidence graph, and published state.", "id": "claim-bridge-001", "status": "hypothesis", "validation_status": "UNKNOWN"}], "validation_counts": {"FAIL": 0, "PASS": 4, "UNKNOWN": 1}}}</script>
+<script>
+const data = JSON.parse(document.getElementById('bridge-data').textContent);
+const report = data.report;
+const graph = data.graph;
+function appendTextCell(row, value) {
+  const cell = document.createElement('td');
+  cell.textContent = value == null ? '' : String(value);
+  row.appendChild(cell);
+  return cell;
+}
+function appendStatusCell(row, value) {
+  const cell = document.createElement('td');
+  const status = value || 'UNKNOWN';
+  const badge = document.createElement('span');
+  badge.className = `status ${status}`;
+  badge.textContent = status;
+  cell.appendChild(badge);
+  row.appendChild(cell);
+  return cell;
+}
+const counts = document.getElementById('counts');
+for (const [key, value] of Object.entries(report.validation_counts)) {
+  const section = document.createElement('section');
+  section.className = 'card';
+  const heading = document.createElement('h2');
+  heading.textContent = key;
+  const count = document.createElement('p');
+  count.className = `status ${key}`;
+  count.textContent = value;
+  section.append(heading, count);
+  counts.appendChild(section);
+}
+for (const [label, value] of [['Nodes', report.graph_counts.nodes], ['Edges', report.graph_counts.edges]]) {
+  const section = document.createElement('section');
+  section.className = 'card';
+  const heading = document.createElement('h2');
+  heading.textContent = label;
+  const count = document.createElement('p');
+  count.textContent = value;
+  section.append(heading, count);
+  counts.appendChild(section);
+}
+const unknownBody = document.querySelector('#unknown tbody');
+for (const row of report.unknown_claims) {
+  const tr = document.createElement('tr');
+  appendTextCell(tr, row.id);
+  appendTextCell(tr, row.claim);
+  appendStatusCell(tr, row.validation_status);
+  unknownBody.appendChild(tr);
+}
+const nodeBody = document.querySelector('#nodes tbody');
+for (const node of graph.nodes || []) {
+  const validation = node.payload?.validation_status || node.provenance?.validation_status || 'UNKNOWN';
+  const tr = document.createElement('tr');
+  appendTextCell(tr, node.type);
+  appendTextCell(tr, node.id);
+  appendTextCell(tr, node.label || '');
+  appendStatusCell(tr, validation);
+  nodeBody.appendChild(tr);
+}
+const byType = {};
+for (const edge of graph.edges || []) {
+  byType[edge.type] ||= [];
+  byType[edge.type].push(`${edge.source} -> ${edge.target}`);
+}
+document.getElementById('edges').textContent = JSON.stringify(byType, null, 2);
+document.getElementById('provenance').textContent = JSON.stringify({report: report.evidence_boundary, graph: graph.provenance}, null, 2);
+</script>
+</body>
+</html>
