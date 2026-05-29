@@ -28,6 +28,25 @@ schemas/chatgpt_codex_request.schema.json
 queues/chatgpt_codex_work_queue.jsonl
 queues/chatgpt_codex_processed.jsonl
 queues/chatgpt_codex_rejected.jsonl
+schemas/chat_bundle.schema.json
+bundles/pending/
+bundles/processed/
+bundles/rejected/
+```
+
+## Chat Bundle Dispatch
+
+Chat Bundles carry bounded conversation summaries, decisions, open questions, evidence links, and requested tasks into Bridge. They are task context only, not evidence.
+
+```bash
+python scripts/create_chat_bundle.py --purpose "..." --conversation-summary "..." --codex-instructions "..." --task "..."
+python scripts/import_chat_bundle.py bundles/pending/chatbundle-example.json
+```
+
+See:
+
+```text
+docs/CHAT_BUNDLE_DISPATCH.md
 ```
 
 ## Queue Semantics

@@ -14,6 +14,7 @@ from bridge_queue import validate_row  # noqa: E402
 from export_evidence_graph import build_graph  # noqa: E402
 import export_reproducibility_report as reproducibility  # noqa: E402
 import export_bridge_health as bridge_health  # noqa: E402
+import chat_bundle  # noqa: E402
 
 
 class BridgeQueueTests(unittest.TestCase):
@@ -357,6 +358,84 @@ class BridgeQueueTests(unittest.TestCase):
             self.assertEqual(health["test_status"]["status"], "pass")
             self.assertEqual(health["top_active_tasks"][0]["title"], "Critical task")
             self.assertIn("Bridge Health Dashboard", md_output.read_text(encoding="utf-8"))
+
+    def test_chat_bundle_import_dispatches_requests_without_evidence_mutation(self) -> None:
+        with tempfile.TemporaryDirectory() as tempdir:
+            temp = Path(tempdir)
+            pending = temp / "pending"
+            processed = temp / "processed"
+            rejected = temp / "rejected"
+            reports = temp / "reports"
+            queue = temp / "queue.jsonl"
+            source = temp / "notes.md"
+            bundle_path = pending / "bundle.json"
+            status_path = reports / "chat_bundle_status.json"
+            source.write_text("summarized notes only\n", encoding="utf-8")
+            bundle = chat_bundle.create_bundle(
+                purpose="Continue Bridge service development",
+                conversation_summary="Bounded summary with no raw evidence claims.",
+                codex_instructions="Validate and stage requested tasks only.",
+                input_path=source,
+                tasks_requested=[
+                    {
+                        "title": "Build dispatch",
+                        "instructions": "Create bundle dispatch.",
+                        "priority": "high",
+                        "acceptance_criteria": ["Bundle validates"],
+                    }
+                ],
+                evidence_links=["reports/bridge_health_latest.json"],
+            )
+            chat_bundle.write_json(bundle_path, bundle)
+
+            old_paths = (
+                chat_bundle.PENDING_DIR,
+                chat_bundle.PROCESSED_DIR,
+                chat_bundle.REJECTED_DIR,
+                chat_bundle.QUEUE_PATH,
+                chat_bundle.STATUS_PATH,
+            )
+            try:
+                chat_bundle.PENDING_DIR = pending
+                chat_bundle.PROCESSED_DIR = processed
+                chat_bundle.REJECTED_DIR = rejected
+                chat_bundle.QUEUE_PATH = queue
+                chat_bundle.STATUS_PATH = status_path
+                status = chat_bundle.import_bundle(bundle_path)
+            finally:
+                (
+                    chat_bundle.PENDING_DIR,
+                    chat_bundle.PROCESSED_DIR,
+                    chat_bundle.REJECTED_DIR,
+                    chat_bundle.QUEUE_PATH,
+                    chat_bundle.STATUS_PATH,
+                ) = old_paths
+
+            self.assertEqual(status["status"], "processed")
+            self.assertEqual(status["requests_generated"], 1)
+            self.assertTrue((processed / "bundle.json").exists())
+            queued = json.loads(queue.read_text(encoding="utf-8").splitlines()[0])
+            self.assertEqual(queued["title"], "Build dispatch")
+            self.assertEqual(queued["source"], "chatgpt")
+            self.assertIn("not proof", queued["evidence_boundary"])
+
+    def test_chat_bundle_rejects_malformed_bundle(self) -> None:
+        bundle = {
+            "bundle_id": "bad-bundle",
+            "created_by": "chatgpt",
+            "created_at": "2026-05-29T00:00:00+00:00",
+            "purpose": "",
+            "conversation_summary": "ok",
+            "tasks_requested": [{"title": ""}],
+            "safety_boundaries": [],
+            "codex_instructions": "ok",
+        }
+
+        errors = chat_bundle.validate_bundle(bundle)
+
+        self.assertIn("purpose must contain at least 3 characters.", errors)
+        self.assertIn("safety_boundaries must be a non-empty array.", errors)
+        self.assertIn("tasks_requested[0].title is required.", errors)
 
 
 if __name__ == "__main__":

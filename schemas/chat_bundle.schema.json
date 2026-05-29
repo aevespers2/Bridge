@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aevespers2/Bridge/schemas/chat_bundle.schema.json",
+  "title": "Chat Bundle Dispatch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bundle_id",
+    "created_by",
+    "created_at",
+    "purpose",
+    "conversation_summary",
+    "tasks_requested",
+    "safety_boundaries",
+    "codex_instructions"
+  ],
+  "properties": {
+    "bundle_id": {"type": "string", "minLength": 8},
+    "created_by": {"type": "string", "enum": ["chatgpt", "user", "codex"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "purpose": {"type": "string", "minLength": 3},
+    "conversation_summary": {"type": "string", "minLength": 3},
+    "key_decisions": {"type": "array", "items": {"type": "string"}, "default": []},
+    "open_questions": {"type": "array", "items": {"type": "string"}, "default": []},
+    "tasks_requested": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"type": "string"},
+          {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["title"],
+            "properties": {
+              "title": {"type": "string", "minLength": 3},
+              "instructions": {"type": "string"},
+              "priority": {"type": "string", "enum": ["low", "medium", "high", "critical", "urgent"]},
+              "request_type": {"type": "string"},
+              "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
+              "commands": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        ]
+      },
+      "default": []
+    },
+    "evidence_links": {"type": "array", "items": {"type": "string"}, "default": []},
+    "bridge_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "default": {}
+    },
+    "safety_boundaries": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "codex_instructions": {"type": "string", "minLength": 3},
+    "source_digest": {"type": "string"},
+    "validation_errors": {"type": "array", "items": {"type": "string"}, "default": []}
+  }
+}

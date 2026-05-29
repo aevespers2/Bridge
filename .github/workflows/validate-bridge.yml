@@ -8,7 +8,10 @@ on:
       - "data/**"
       - "docs/evidence-graph/**"
       - "docs/BRIDGE_HEALTH_DASHBOARD.md"
+      - "docs/CHAT_BUNDLE_DISPATCH.md"
+      - "bundles/**"
       - "schemas/chatgpt_request.schema.json"
+      - "schemas/chat_bundle.schema.json"
       - "scripts/**"
       - "manifests/codex_api_manifest.json"
       - "reports/evidence_graph.json"
@@ -40,6 +43,15 @@ jobs:
         run: python scripts/export_reproducibility_report.py
       - name: Export Bridge health dashboard
         run: python scripts/export_bridge_health.py
+      - name: Verify Chat Bundle dry run
+        run: |
+          python scripts/create_chat_bundle.py \
+            --purpose "CI chat bundle smoke test" \
+            --conversation-summary "Bounded summary for CI." \
+            --codex-instructions "Validate and stage only." \
+            --task "CI bundle smoke task" \
+            --output /tmp/chatbundle-ci.json
+          python scripts/import_chat_bundle.py /tmp/chatbundle-ci.json --dry-run
       - name: Verify dry-run commands
         run: |
           python scripts/run_seed_cluster_40128307.py
