@@ -56,6 +56,7 @@ schemas/chatgpt_request.schema.json
 exports/chatgpt_request_queue.jsonl
 docs/GITHUB_CHATGPT_WRITEBACK.md
 reports/reproducibility_report.md
+reports/bridge_health_latest.md
 docs/evidence-graph/index.html
 ```
 

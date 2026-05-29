@@ -1,0 +1,121 @@
+{
+  "command_results": {
+    "command_result_count": 22,
+    "executed_count": 22,
+    "failed_count": 0,
+    "rejected_count": 0
+  },
+  "evidence_boundary": "Health dashboard is operational status only; it does not prove or alter evidence claims.",
+  "generated_at": "2026-05-29T08:50:05.370971+00:00",
+  "gist": {
+    "latest_snapshot_timestamp": "unknown",
+    "status": "timestamp_unknown",
+    "urls": {
+      "pull_list100": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_pull_list100.json",
+      "ranked25": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_ranked25.json",
+      "seed_apn_40128307": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_40128307.json",
+      "summary": "https://gist.githubusercontent.com/GeorgeTownSabatical/ea83e2a96538900b5a0c0ca0b58b76b4/raw/local_summary.json"
+    }
+  },
+  "latest_routine_check": {
+    "counts": {
+      "commands": 9,
+      "failed": 0,
+      "succeeded": 9
+    },
+    "end_time": "2026-05-29T06:05:03.101061+00:00",
+    "exit_status": "success",
+    "start_time": "2026-05-29T06:04:59.043485+00:00"
+  },
+  "ledger_status": {
+    "latest_run_task_ledger": {
+      "appended_entries": 0,
+      "duplicate_entries": 0,
+      "ledger_entries": 22,
+      "ledger_path": "/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_task_ledger.jsonl",
+      "unique_task_hashes": 22
+    },
+    "task_ledger_entries": 22
+  },
+  "overall_status": "ok",
+  "queue_counts": {
+    "blocked": 0,
+    "local_processed": 1,
+    "local_rejected": 0,
+    "processed": 22,
+    "processed_by_status": {
+      "accepted": 22
+    },
+    "rejected": 0,
+    "work_queue": 22,
+    "work_queue_by_status": {
+      "pending": 22
+    }
+  },
+  "repo": "aevespers2/Bridge",
+  "reports": {
+    "health_json": "reports/bridge_health_latest.json",
+    "health_markdown": "reports/bridge_health_latest.md",
+    "latest_bridge_run": "reports/latest_bridge_run.json",
+    "reproducibility_report": "reports/reproducibility_report.json",
+    "routine_check_latest": "reports/routine_bridge_check_latest.json"
+  },
+  "scheduler_mode": "external/manual; Bridge repo does not install launchd",
+  "schema": "bridge_health_dashboard.v1",
+  "test_status": {
+    "command": "python -m pytest",
+    "completed_at": "2026-05-28T08:05:14.103887+00:00",
+    "source": "latest_bridge_run.command_results",
+    "status": "pass"
+  },
+  "top_active_tasks": [
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Add 15-minute routine Bridge check workflow"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Add evidence ledger and provenance spine"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Add idempotent Bridge task ledger and deduplication"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Add parcel lineage graph export"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Build assessor-office packet generator"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Build first record-retrieval playbook"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Build safe Bridge command service for routine Codex checks"
+    },
+    {
+      "priority": "critical",
+      "request_type": "codex_task",
+      "status": "pending",
+      "title": "Design QSOF-integrated service bridge architecture"
+    }
+  ]
+}

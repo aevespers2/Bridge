@@ -7,12 +7,15 @@ on:
       - "exports/chatgpt_request_queue.jsonl"
       - "data/**"
       - "docs/evidence-graph/**"
+      - "docs/BRIDGE_HEALTH_DASHBOARD.md"
       - "schemas/chatgpt_request.schema.json"
       - "scripts/**"
       - "manifests/codex_api_manifest.json"
       - "reports/evidence_graph.json"
       - "reports/reproducibility_report.json"
       - "reports/reproducibility_report.md"
+      - "reports/bridge_health_latest.json"
+      - "reports/bridge_health_latest.md"
 
 permissions:
   contents: read
@@ -35,6 +38,8 @@ jobs:
         run: python scripts/export_evidence_graph.py
       - name: Export reproducibility report
         run: python scripts/export_reproducibility_report.py
+      - name: Export Bridge health dashboard
+        run: python scripts/export_bridge_health.py
       - name: Verify dry-run commands
         run: |
           python scripts/run_seed_cluster_40128307.py

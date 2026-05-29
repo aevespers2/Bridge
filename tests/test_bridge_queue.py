@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from bridge_queue import validate_row  # noqa: E402
 from export_evidence_graph import build_graph  # noqa: E402
 import export_reproducibility_report as reproducibility  # noqa: E402
+import export_bridge_health as bridge_health  # noqa: E402
 
 
 class BridgeQueueTests(unittest.TestCase):
@@ -234,6 +235,128 @@ class BridgeQueueTests(unittest.TestCase):
             self.assertIn("doc-1", report["required_sources"])
             self.assertIn("python scripts/export_reproducibility_report.py", report["commands"])
             self.assertIn("Bridge Evidence Graph Review", page_output.read_text(encoding="utf-8"))
+
+    def test_bridge_health_dashboard_exports_operational_summary(self) -> None:
+        with tempfile.TemporaryDirectory() as tempdir:
+            temp = Path(tempdir)
+            queues = temp / "queues"
+            exports = temp / "exports"
+            reports = temp / "reports"
+            queues.mkdir()
+            exports.mkdir()
+            reports.mkdir()
+
+            work_queue = queues / "work.jsonl"
+            processed = queues / "processed.jsonl"
+            rejected = queues / "rejected.jsonl"
+            local_processed = exports / "processed.jsonl"
+            local_rejected = exports / "rejected.jsonl"
+            latest_run = reports / "latest_bridge_run.json"
+            routine = reports / "routine.json"
+            repro = reports / "repro.json"
+            ledger = reports / "ledger.jsonl"
+            commands = reports / "commands.jsonl"
+            json_output = reports / "health.json"
+            md_output = reports / "health.md"
+
+            work_queue.write_text(
+                json.dumps(
+                    {
+                        "request_type": "codex_task",
+                        "title": "Critical task",
+                        "priority": "critical",
+                        "status": "pending",
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            processed.write_text("", encoding="utf-8")
+            rejected.write_text("", encoding="utf-8")
+            local_processed.write_text(json.dumps({"id": "local-1", "status": "accepted"}) + "\n", encoding="utf-8")
+            local_rejected.write_text("", encoding="utf-8")
+            latest_run.write_text(
+                json.dumps(
+                    {
+                        "blocked_count": 0,
+                        "routine_check": {
+                            "start_time": "2026-05-29T00:00:00+00:00",
+                            "end_time": "2026-05-29T00:01:00+00:00",
+                            "exit_status": "success",
+                            "counts": {"commands": 1, "failed": 0, "succeeded": 1},
+                        },
+                        "command_results": {
+                            "command_result_count": 1,
+                            "executed_count": 1,
+                            "failed_count": 0,
+                            "rejected_count": 0,
+                            "latest_results": [
+                                {
+                                    "command": "python -m unittest discover -s tests",
+                                    "exit_code": 0,
+                                    "completed_at": "2026-05-29T00:01:00+00:00",
+                                }
+                            ],
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            routine.write_text("{}", encoding="utf-8")
+            repro.write_text(json.dumps({"reproducible": True, "generated_at": "2026-05-29T00:01:00+00:00"}), encoding="utf-8")
+            ledger.write_text(json.dumps({"id": "ledger-1"}) + "\n", encoding="utf-8")
+            commands.write_text("", encoding="utf-8")
+
+            old_paths = (
+                bridge_health.WORK_QUEUE_PATH,
+                bridge_health.PROCESSED_QUEUE_PATH,
+                bridge_health.REJECTED_QUEUE_PATH,
+                bridge_health.LOCAL_PROCESSED_PATH,
+                bridge_health.LOCAL_REJECTED_PATH,
+                bridge_health.LATEST_RUN_PATH,
+                bridge_health.ROUTINE_CHECK_PATH,
+                bridge_health.REPRO_REPORT_PATH,
+                bridge_health.TASK_LEDGER_PATH,
+                bridge_health.COMMAND_RESULTS_PATH,
+                bridge_health.JSON_OUTPUT,
+                bridge_health.MD_OUTPUT,
+            )
+            try:
+                bridge_health.WORK_QUEUE_PATH = work_queue
+                bridge_health.PROCESSED_QUEUE_PATH = processed
+                bridge_health.REJECTED_QUEUE_PATH = rejected
+                bridge_health.LOCAL_PROCESSED_PATH = local_processed
+                bridge_health.LOCAL_REJECTED_PATH = local_rejected
+                bridge_health.LATEST_RUN_PATH = latest_run
+                bridge_health.ROUTINE_CHECK_PATH = routine
+                bridge_health.REPRO_REPORT_PATH = repro
+                bridge_health.TASK_LEDGER_PATH = ledger
+                bridge_health.COMMAND_RESULTS_PATH = commands
+                bridge_health.JSON_OUTPUT = json_output
+                bridge_health.MD_OUTPUT = md_output
+                bridge_health.main()
+            finally:
+                (
+                    bridge_health.WORK_QUEUE_PATH,
+                    bridge_health.PROCESSED_QUEUE_PATH,
+                    bridge_health.REJECTED_QUEUE_PATH,
+                    bridge_health.LOCAL_PROCESSED_PATH,
+                    bridge_health.LOCAL_REJECTED_PATH,
+                    bridge_health.LATEST_RUN_PATH,
+                    bridge_health.ROUTINE_CHECK_PATH,
+                    bridge_health.REPRO_REPORT_PATH,
+                    bridge_health.TASK_LEDGER_PATH,
+                    bridge_health.COMMAND_RESULTS_PATH,
+                    bridge_health.JSON_OUTPUT,
+                    bridge_health.MD_OUTPUT,
+                ) = old_paths
+
+            health = json.loads(json_output.read_text(encoding="utf-8"))
+            self.assertEqual(health["overall_status"], "ok")
+            self.assertEqual(health["queue_counts"]["work_queue"], 1)
+            self.assertEqual(health["test_status"]["status"], "pass")
+            self.assertEqual(health["top_active_tasks"][0]["title"], "Critical task")
+            self.assertIn("Bridge Health Dashboard", md_output.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":
