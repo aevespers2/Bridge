@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-29T06:24:36.876716+00:00",
+  "outputs": {
+    "encoded_payload": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/uvip_qsom_mesh/uvip_qsom_payload.b64url.txt",
+    "html": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/uvip_qsom_mesh/index.html",
+    "payload": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/uvip_qsom_mesh/uvip_qsom_payload.json",
+    "svg": "/Users/ALISTAIRE/housing-fraud-intel-api/outputs/uvip_qsom_mesh/uvip_qsom_mesh.svg"
+  },
+  "payload_hash": "7a2a5dfb82eefb075cb22fcbe0372b0b3dbb3ad8bbdfbc1ff59d21fa8ae99fcd",
+  "public_lookup_url": "https://aevespers2.github.io/Bridge/property-lookup/standalone.html",
+  "scanner_boundary": "Standard QR/URL fallbacks are for scanning. The wavy mesh is deterministic visual encoding with embedded metadata.",
+  "schema": "uvip_qsom_mesh_manifest.v1"
+}

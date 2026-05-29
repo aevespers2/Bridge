@@ -11,6 +11,7 @@ Search a public parcel snapshot by APN, address text, city, or use class. The lo
 <div class="actions">
   <a class="button" href="{{ '/property-lookup/standalone.html' | relative_url }}">Open Lookup</a>
   <a class="button secondary" href="{{ '/qr/' | relative_url }}">Open QR Code</a>
+  <a class="button secondary" href="{{ '/uvip-qsom/' | relative_url }}">Open Mesh</a>
   <a class="button secondary" href="{{ '/court-access/' | relative_url }}">Court Handout</a>
 </div>
 
@@ -32,6 +33,10 @@ This is informational public-record triage. It is not legal advice, a title opin
   <section class="card">
     <h3>Evidence boundary</h3>
     <p>The public site excludes owner fields and keeps hypotheses separate from observed records.</p>
+  </section>
+  <section class="card">
+    <h3>UVIP/QSO mesh</h3>
+    <p>A colorful deterministic state signature carries lookup, attestation, and evidence-boundary metadata.</p>
   </section>
 </div>
 

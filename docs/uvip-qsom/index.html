@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UVIP QSO Mesh Barcode</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2933; background: #f7f9fb; }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { font-size: clamp(30px, 5vw, 56px); margin-bottom: 8px; letter-spacing: 0; }
+    .lead { color: #596574; font-size: 18px; max-width: 780px; }
+    .mesh { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 18px; align-items: start; }
+    img { width: 100%; max-width: 520px; border: 1px solid #d8dee6; border-radius: 8px; background: white; }
+    .panel { background: white; border: 1px solid #d8dee6; border-radius: 8px; padding: 14px; }
+    .button { display: inline-flex; min-height: 42px; align-items: center; padding: 0 14px; border-radius: 6px; background: #0f766e; color: white; text-decoration: none; font-weight: 700; }
+    code, pre { background: #edf1f5; border-radius: 6px; }
+    code { padding: 2px 5px; }
+    pre { overflow-x: auto; padding: 12px; max-height: 420px; }
+    @media (max-width: 820px) { .mesh { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>UVIP QSO Mesh Barcode</h1>
+    <p class="lead">A deterministic colorful data carrier for the public lookup, UVIP attestation summary, QSOF projection identity, and evidence boundary. Use the standard URL fallback for reliable access.</p>
+    <div class="mesh">
+      <img src="uvip_qsom_mesh.svg" alt="UVIP QSO Mesh Barcode">
+      <section class="panel">
+        <p><a class="button" href="https://aevespers2.github.io/Bridge/property-lookup/standalone.html">Open Public Lookup</a></p>
+        <p><strong>Payload hash:</strong><br><code>7a2a5dfb82eefb075cb22fcbe0372b0b3dbb3ad8bbdfbc1ff59d21fa8ae99fcd</code></p>
+        <p><strong>Mesh URI:</strong><br><code>qso://housing-fraud-intel.uvip_qsom.mesh.3e5019bdda0006335e46e6f6</code></p>
+        <p><strong>Boundary:</strong> Decorative mesh is an auditable data carrier and visual signature. It is not a legal conclusion, title opinion, ownership determination, valuation, or misconduct finding. Standard QR/URL fallbacks control access.</p>
+      </section>
+    </div>
+    <h2>Embedded Payload</h2>
+    <pre>{
+  &quot;attestations&quot;: {
+    &quot;files&quot;: {
+      &quot;identity&quot;: {
+        &quot;available&quot;: true,
+        &quot;path&quot;: &quot;/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/bridge_identity_latest.json&quot;,
+        &quot;sha256&quot;: &quot;6551d44543b9cb06b992ae737bfab86bfdb354bae3c65744fb368462a179e03d&quot;,
+        &quot;size_bytes&quot;: 4118
+      },
+      &quot;mcp_context&quot;: {
+        &quot;available&quot;: true,
+        &quot;path&quot;: &quot;/Users/ALISTAIRE/housing-fraud-intel-api/exports/bridge_status/mcp_bridge_context.json&quot;,
+        &quot;sha256&quot;: &quot;825da748b1f99530731124dd9ed9393d0ab99143f7efd6a8c2d17c46a814079c&quot;,
+        &quot;size_bytes&quot;: 3067
+      },
+      &quot;public_qr_target&quot;: {
+        &quot;available&quot;: true,
+        &quot;path&quot;: &quot;/Users/ALISTAIRE/housing-fraud-intel-api/outputs/public_property_lookup/property_lookup_qr_target.txt&quot;,
+        &quot;sha256&quot;: &quot;595de95eabd3228d2a6880bdd4b4c6445e47d0f2a854e81b5ce15ed2c0ff44b0&quot;,
+        &quot;size_bytes&quot;: 68
+      },
+      &quot;qsof_manifest&quot;: {
+        &quot;available&quot;: true,
+        &quot;path&quot;: &quot;/Users/ALISTAIRE/housing-fraud-intel-api/exports/qsof_bridge/qsof_bridge_manifest.json&quot;,
+        &quot;sha256&quot;: &quot;f7524217442b7e70581a4662ff42ed6812151eed99ff11b8e457eccd74c04cc0&quot;,
+        &quot;size_bytes&quot;: 658
+      }
+    },
+    &quot;mcp_context&quot;: {
+      &quot;context_hash&quot;: &quot;a483c869c46c6383872dced134317ddb25e64d3a09ef9ba66cf204700a731cb6&quot;,
+      &quot;generated_at&quot;: &quot;2026-05-29T06:24:31.894612+00:00&quot;,
+      &quot;protocol&quot;: &quot;mcp_bridge_context.v1&quot;
+    },
+    &quot;qsof_bridge&quot;: {
+      &quot;generated_at&quot;: &quot;2026-05-29T06:24:24.519975+00:00&quot;,
+      &quot;manifest_hash&quot;: &quot;d54bd2faf0137bfedeee4b782b8e0d71d99a67f46b239e74b010b6c994fc1700&quot;,
+      &quot;object_count&quot;: 22
+    },
+    &quot;uvip&quot;: {
+      &quot;attestation_hash&quot;: &quot;7c25de9e9d3f5a998422f9b50cd1215e53bfdc2f7913dfa506df89cc82fef0f6&quot;,
+      &quot;previous_attestation_hash&quot;: &quot;bc47edd4b8ab95cd8089a54e9c4fafd02b9d213fcab8416d8c4d4b3439d88c05&quot;,
+      &quot;protocol&quot;: &quot;UVIP-Bridge&quot;,
+      &quot;protocol_version&quot;: &quot;1.0.0&quot;,
+      &quot;run_id&quot;: &quot;e4de74c1ede33fef14747a39&quot;,
+      &quot;verification_summary&quot;: {
+        &quot;attested_artifact_count&quot;: 7,
+        &quot;bridge_source_reachable&quot;: true,
+        &quot;hash_chain_present&quot;: true,
+        &quot;identity_level&quot;: &quot;hashed_runner_identity_plus_github_blob_identity&quot;,
+        &quot;missing_artifact_count&quot;: 0
+      }
+    }
+  },
+  &quot;encoded_payload_b64url&quot;: &quot;eyJhdHRlc3RhdGlvbnMiOnsiZmlsZXMiOnsiaWRlbnRpdHkiOnsiYXZhaWxhYmxlIjp0cnVlLCJwYXRoIjoiL1VzZXJzL0FMSVNUQUlSRS9ob3VzaW5nLWZyYXVkLWludGVsLWFwaS9leHBvcnRzL2JyaWRnZV9zdGF0dXMvYnJpZGdlX2lkZW50aXR5X2xhdGVzdC5qc29uIiwic2hhMjU2IjoiNjU1MWQ0NDU0M2I5Y2IwNmI5OTJhZTczN2JmYWI4NmJmZGIzNTRiYWUzYzY1NzQ0ZmIzNjg0NjJhMTc5ZTAzZCIsInNpemVfYnl0ZXMiOjQxMTh9LCJtY3BfY29udGV4dCI6eyJhdmFpbGFibGUiOnRydWUsInBhdGgiOiIvVXNlcnMvQUxJU1RBSVJFL2hvdXNpbmctZnJhdWQtaW50ZWwtYXBpL2V4cG9ydHMvYnJpZGdlX3N0YXR1cy9tY3BfYnJpZGdlX2NvbnRleHQuanNvbiIsInNoYTI1NiI6IjgyNWRhNzQ4YjFmOTk1MzA3MzExMjRkZDllZDkzOTNkMGFiOTkxNDNmN2VmZDZhOGMyZDE3YzQ2YTgxNDA3OWMiLCJzaXplX2J5dGVzIjozMDY3fSwicHVibGljX3FyX3RhcmdldCI6eyJhdmFpbGFibGUiOnRydWUsInBhdGgiOiIvVXNlcnMvQUxJU1RBSVJFL2hvdXNpbmctZnJhdWQtaW50ZWwtYXBpL291dHB1dHMvcHVibGljX3Byb3BlcnR5X2xvb2t1cC9wcm9wZXJ0eV9sb29rdXBfcXJfdGFyZ2V0LnR4dCIsInNoYTI1NiI6IjU5NWRlOTVlYWJkMzIyOGQyYTY4ODBiZGQ0YjRjNjQ0NWU0N2QwZjJhODU0ZTgxYjVjZTE1ZWQyYzBmZjQ0YjAiLCJzaXplX2J5dGVzIjo2OH0sInFzb2ZfbWFuaWZlc3QiOnsiYXZhaWxhYmxlIjp0cnVlLCJwYXRoIjoiL1VzZXJzL0FMSVNUQUlSRS9ob3VzaW5nLWZyYXVkLWludGVsLWFwaS9leHBvcnRzL3Fzb2ZfYnJpZGdlL3Fzb2ZfYnJpZGdlX21hbmlmZXN0Lmpzb24iLCJzaGEyNTYiOiJmNzUyNDIxNzQ0MmI3ZTcwNTgxYTQ2NjJmZjQyZWQ2ODEyMTUxZWVkOTlmZjExYjhlNDU3ZWNjZDc0YzA0Y2MwIiwic2l6ZV9ieXRlcyI6NjU4fX0sIm1jcF9jb250ZXh0Ijp7ImNvbnRleHRfaGFzaCI6ImE0ODNjODY5YzQ2YzYzODM4NzJkY2VkMTM0MzE3ZGRiMjVlNjRkM2EwOWVmOWJhNjZjZjIwNDcwMGE3MzFjYjYiLCJnZW5lcmF0ZWRfYXQiOiIyMDI2LTA1LTI5VDA2OjI0OjMxLjg5NDYxMiswMDowMCIsInByb3RvY29sIjoibWNwX2JyaWRnZV9jb250ZXh0LnYxIn0sInFzb2ZfYnJpZGdlIjp7ImdlbmVyYXRlZF9hdCI6IjIwMjYtMDUtMjlUMDY6MjQ6MjQuNTE5OTc1KzAwOjAwIiwibWFuaWZlc3RfaGFzaCI6ImQ1NGJkMmZhZjAxMzdiZmVkZWVlNGI3ODJiOGUwZDcxZDk5YTY3ZjQ2YjIzOWU3NGIwMTBiNmM5OTRmYzE3MDAiLCJvYmplY3RfY291bnQiOjIyfSwidXZpcCI6eyJhdHRlc3RhdGlvbl9oYXNoIjoiN2MyNWRlOWU5ZDNmNWE5OTg0MjJmOWI1MGNkMTIxNWU1M2JmZGMyZjc5MTNkZmE1MDZkZjg5Y2M4MmZlZjBmNiIsInByZXZpb3VzX2F0dGVzdGF0aW9uX2hhc2giOiJiYzQ3ZWRkNGI4YWI5NWNkODA4OWE1NGU5YzRmYWZkMDJiOWQyMTNmY2FiODQxNmQ4YzRkNGIzNDM5ZDg4YzA1IiwicHJvdG9jb2wiOiJVVklQLUJyaWRnZSIsInByb3RvY29sX3ZlcnNpb24iOiIxLjAuMCIsInJ1bl9pZCI6ImU0ZGU3NGMxZWRlMzNmZWYxNDc0N2EzOSIsInZlcmlmaWNhdGlvbl9zdW1tYXJ5Ijp7ImF0dGVzdGVkX2FydGlmYWN0X2NvdW50Ijo3LCJicmlkZ2Vfc291cmNlX3JlYWNoYWJsZSI6dHJ1ZSwiaGFzaF9jaGFpbl9wcmVzZW50Ijp0cnVlLCJpZGVudGl0eV9sZXZlbCI6Imhhc2hlZF9ydW5uZXJfaWRlbnRpdHlfcGx1c19naXRodWJfYmxvYl9pZGVudGl0eSIsIm1pc3NpbmdfYXJ0aWZhY3RfY291bnQiOjB9fX0sImV2aWRlbmNlX2JvdW5kYXJ5IjoiRGVjb3JhdGl2ZSBtZXNoIGlzIGFuIGF1ZGl0YWJsZSBkYXRhIGNhcnJpZXIgYW5kIHZpc3VhbCBzaWduYXR1cmUuIEl0IGlzIG5vdCBhIGxlZ2FsIGNvbmNsdXNpb24sIHRpdGxlIG9waW5pb24sIG93bmVyc2hpcCBkZXRlcm1pbmF0aW9uLCB2YWx1YXRpb24sIG9yIG1pc2NvbmR1Y3QgZmluZGluZy4gU3RhbmRhcmQgUVIvVVJMIGZhbGxiYWNrcyBjb250cm9sIGFjY2Vzcy4iLCJmYWxsYmFja3MiOlt7ImtpbmQiOiJjYW5vbmljYWxfbG9va3VwX3VybCIsInVybCI6Imh0dHBzOi8vYWV2ZXNwZXJzMi5naXRodWIuaW8vQnJpZGdlL3Byb3BlcnR5LWxvb2t1cC9zdGFuZGFsb25lLmh0bWwifSx7ImtpbmQiOiJwdWJsaWNfbWVzaF9wYWdlIiwidXJsIjoiaHR0cHM6Ly9hZXZlc3BlcnMyLmdpdGh1Yi5pby9CcmlkZ2UvdXZpcC1xc29tLyJ9LHsia2luZCI6InN0YW5kYXJkX3FyX3RhcmdldF90ZXh0IiwicGF0aCI6Ii9Vc2Vycy9BTElTVEFJUkUvaG91c2luZy1mcmF1ZC1pbnRlbC1hcGkvb3V0cHV0cy9wdWJsaWNfcHJvcGVydHlfbG9va3VwL3Byb3BlcnR5X2xvb2t1cF9xcl90YXJnZXQudHh0In1dLCJnZW5lcmF0ZWRfYXQiOiIyMDI2LTA1LTI5VDA2OjI0OjM2Ljg2MTg5NyswMDowMCIsImh1bWFuX3N1bW1hcnkiOiJQdWJsaWMgcHJvcGVydHkgbG9va3VwLCBVVklQIGF0dGVzdGF0aW9uIHN1bW1hcnksIFFTT0YgcHJvamVjdGlvbiBpZGVudGl0eSwgYW5kIGV2aWRlbmNlLWJvdW5kYXJ5IG1ldGFkYXRhLiIsInByb3RvY29sIjoiVVZJUC1RU09NIiwicHJvdG9jb2xfdmVyc2lvbiI6IjEuMC4wIiwicHJvdmVuYW5jZSI6eyJhcnRpZmFjdF9ydWxlIjoiRG8gbm90IG1vZGlmeSBvdXRwdXRzL2dpc19tb2RlbCBvciBwdWJsaWMgZXZpZGVuY2UgR2lzdCBkaXJlY3RseS4iLCJwcm9kdWNlciI6InNjcmlwdHMvZXhwb3J0X3V2aXBfcXNvbV9tZXNoX3FyLnB5Iiwic291cmNlX3JlcG8iOiJob3VzaW5nLWZyYXVkLWludGVsLWFwaSJ9LCJwdWJsaWNfbG9va3VwX3VybCI6Imh0dHBzOi8vYWV2ZXNwZXJzMi5naXRodWIuaW8vQnJpZGdlL3Byb3BlcnR5LWxvb2t1cC9zdGFuZGFsb25lLmh0bWwiLCJxc29fbWVzaCI6eyJldmVudF91cmkiOiJxc286Ly9ob3VzaW5nLWZyYXVkLWludGVsLnV2aXBfcXNvbS5ldmVudC4zZTUwMTliZGRhMDAwNjMzNWU0NmU2ZjYiLCJtZXNoX3VyaSI6InFzbzovL2hvdXNpbmctZnJhdWQtaW50ZWwudXZpcF9xc29tLm1lc2guM2U1MDE5YmRkYTAwMDYzMzVlNDZlNmY2IiwicnVudGltZV9ib3VuZGFyeSI6IlByb2plY3Rpb24gYXJ0aWZhY3Qgb25seTsgZG9lcyBub3QgbXV0YXRlIHFzby1mYWJyaWMgb3IgYW55IFFTTyBldmVudCBzdG9yZS4iLCJzdGF0ZV9jaGFubmVscyI6WyJwdWJsaWNfbG9va3VwX2FjY2VzcyIsInV2aXBfaWRlbnRpdHlfYXR0ZXN0YXRpb24iLCJtY3BfYnJpZGdlX2NvbnRleHQiLCJxc29mX3Byb2plY3Rpb25fbWFuaWZlc3QiLCJldmlkZW5jZV9ib3VuZGFyeSJdLCJzdGF0ZV9vYmplY3RfdXJpIjoicXNvOi8vaG91c2luZy1mcmF1ZC1pbnRlbC51dmlwX3Fzb20uc3RhdGUuM2U1MDE5YmRkYTAwMDYzMzVlNDZlNmY2In0sInNjaGVtYSI6InV2aXBfcXNvbV9tZXNoX3BheWxvYWQudjEiLCJ2aXN1YWxfZW5jb2RpbmciOnsiY29sb3JfbW9kZWwiOiJzaGEyNTYtZGVyaXZlZCBodWUvc2F0dXJhdGlvbi9saWdodG5lc3MgcGVyIG1vZHVsZSIsImRldGVybWluaXN0aWNfZnJvbSI6InBheWxvYWRfaGFzaCIsImtpbmQiOiJ3YXZ5X2NvbG9yX2JhcmNvZGUiLCJtYWNoaW5lX3JlYWRpbmdfc3RhdHVzIjoibWV0YWRhdGEtYW5kLXNpZGVjYXItZGVjb2RhYmxlOyB2aXN1YWwgc2Nhbm5lciBub3QgaW1wbGVtZW50ZWQiLCJ3YXZlX21vZGVsIjoic2hhMjU2LWRlcml2ZWQgc2ludXNvaWRhbCBvZmZzZXRzIHBlciBtb2R1bGUgcm93In19&quot;,
+  &quot;evidence_boundary&quot;: &quot;Decorative mesh is an auditable data carrier and visual signature. It is not a legal conclusion, title opinion, ownership determination, valuation, or misconduct finding. Standard QR/URL fallbacks control access.&quot;,
+  &quot;fallbacks&quot;: [
+    {
+      &quot;kind&quot;: &quot;canonical_lookup_url&quot;,
+      &quot;url&quot;: &quot;https://aevespers2.github.io/Bridge/property-lookup/standalone.html&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;public_mesh_page&quot;,
+      &quot;url&quot;: &quot;https://aevespers2.github.io/Bridge/uvip-qsom/&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;standard_qr_target_text&quot;,
+      &quot;path&quot;: &quot;/Users/ALISTAIRE/housing-fraud-intel-api/outputs/public_property_lookup/property_lookup_qr_target.txt&quot;
+    }
+  ],
+  &quot;generated_at&quot;: &quot;2026-05-29T06:24:36.861897+00:00&quot;,
+  &quot;human_summary&quot;: &quot;Public property lookup, UVIP attestation summary, QSOF projection identity, and evidence-boundary metadata.&quot;,
+  &quot;payload_hash&quot;: &quot;7a2a5dfb82eefb075cb22fcbe0372b0b3dbb3ad8bbdfbc1ff59d21fa8ae99fcd&quot;,
+  &quot;protocol&quot;: &quot;UVIP-QSOM&quot;,
+  &quot;protocol_version&quot;: &quot;1.0.0&quot;,
+  &quot;provenance&quot;: {
+    &quot;artifact_rule&quot;: &quot;Do not modify outputs/gis_model or public evidence Gist directly.&quot;,
+    &quot;producer&quot;: &quot;scripts/export_uvip_qsom_mesh_qr.py&quot;,
+    &quot;source_repo&quot;: &quot;housing-fraud-intel-api&quot;
+  },
+  &quot;public_lookup_url&quot;: &quot;https://aevespers2.github.io/Bridge/property-lookup/standalone.html&quot;,
+  &quot;qso_mesh&quot;: {
+    &quot;event_uri&quot;: &quot;qso://housing-fraud-intel.uvip_qsom.event.3e5019bdda0006335e46e6f6&quot;,
+    &quot;mesh_uri&quot;: &quot;qso://housing-fraud-intel.uvip_qsom.mesh.3e5019bdda0006335e46e6f6&quot;,
+    &quot;runtime_boundary&quot;: &quot;Projection artifact only; does not mutate qso-fabric or any QSO event store.&quot;,
+    &quot;state_channels&quot;: [
+      &quot;public_lookup_access&quot;,
+      &quot;uvip_identity_attestation&quot;,
+      &quot;mcp_bridge_context&quot;,
+      &quot;qsof_projection_manifest&quot;,
+      &quot;evidence_boundary&quot;
+    ],
+    &quot;state_object_uri&quot;: &quot;qso://housing-fraud-intel.uvip_qsom.state.3e5019bdda0006335e46e6f6&quot;
+  },
+  &quot;schema&quot;: &quot;uvip_qsom_mesh_payload.v1&quot;,
+  &quot;visual_encoding&quot;: {
+    &quot;color_model&quot;: &quot;sha256-derived hue/saturation/lightness per module&quot;,
+    &quot;deterministic_from&quot;: &quot;payload_hash&quot;,
+    &quot;kind&quot;: &quot;wavy_color_barcode&quot;,
+    &quot;machine_reading_status&quot;: &quot;metadata-and-sidecar-decodable; visual scanner not implemented&quot;,
+    &quot;wave_model&quot;: &quot;sha256-derived sinusoidal offsets per module row&quot;
+  }
+}</pre>
+  </main>
+</body>
+</html>

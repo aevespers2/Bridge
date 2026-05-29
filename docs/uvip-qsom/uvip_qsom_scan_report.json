@@ -1,0 +1,21 @@
+{
+  "computed_payload_hash": "7a2a5dfb82eefb075cb22fcbe0372b0b3dbb3ad8bbdfbc1ff59d21fa8ae99fcd",
+  "errors": [],
+  "mesh_uri": "qso://housing-fraud-intel.uvip_qsom.mesh.3e5019bdda0006335e46e6f6",
+  "payload_hash": "7a2a5dfb82eefb075cb22fcbe0372b0b3dbb3ad8bbdfbc1ff59d21fa8ae99fcd",
+  "payload_summary": {
+    "evidence_boundary": "Decorative mesh is an auditable data carrier and visual signature. It is not a legal conclusion, title opinion, ownership determination, valuation, or misconduct finding. Standard QR/URL fallbacks control access.",
+    "generated_at": "2026-05-29T06:24:36.861897+00:00",
+    "protocol": "UVIP-QSOM",
+    "protocol_version": "1.0.0",
+    "qsof_object_count": 22,
+    "uvip_attestation_hash": "7c25de9e9d3f5a998422f9b50cd1215e53bfdc2f7913dfa506df89cc82fef0f6"
+  },
+  "public_lookup_url": "https://aevespers2.github.io/Bridge/property-lookup/standalone.html",
+  "scanned_at": "2026-05-29T06:26:08.325403+00:00",
+  "scanner_boundary": "This scanner decodes UVIP-QSOM JSON, base64url sidecars, SVG metadata, and HTML embedded payloads. It does not yet perform camera/image recovery from the wavy visual modules.",
+  "schema": "uvip_qsom_scan_report.v1",
+  "source_kind": "json",
+  "source_path": "outputs/uvip_qsom_mesh/uvip_qsom_payload.json",
+  "valid": true
+}
